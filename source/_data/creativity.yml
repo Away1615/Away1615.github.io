@@ -1,0 +1,33 @@
+- class_name: 开启创造力
+  creativity_list:
+    - name: Swift
+      color: "#de5d43"
+      icon: https://s2.loli.net/2024/09/14/2qlQVRxihpCjOtH.png
+    - name: Photoshop
+      color: "#4082c3"
+      icon: https://bu.dusays.com/2022/12/15/639aa3a5c240e.png
+    - name: Python
+      color: "#fff"
+      icon: https://bu.dusays.com/2023/04/09/643293b1230f7.png
+    - name: Git
+      color: "#df5b40"
+      icon: https://bu.dusays.com/2023/04/09/643293b10ccdd.webp
+    - name: Uneal Engine
+      color: "#080808"
+      icon: https://s2.loli.net/2024/09/18/9NG3kVpDfbgrJqY.png
+    - name: Rust
+      color: "#f7f7f7"
+      icon: https://s2.loli.net/2024/09/18/QDupERCbx9e45i2.png
+    - name: Maya
+      color: "#59a3c8"
+      icon: https://s2.loli.net/2024/09/18/25niIMjr4RXGvlq.png
+    - name: Blender
+      color: "#fff"
+      icon: https://s2.loli.net/2024/09/18/Zmpcn2RCHTbe74F.png
+    - name: LightRoom Classic
+      color: "#4082c3"
+      icon: https://s2.loli.net/2024/09/18/vwqQMXAcTtrGzbx.png
+    - name: Charles
+      color: "#54b0c3"
+      icon: https://s2.loli.net/2024/09/18/FXjamUy8Th1w9Lc.png
+

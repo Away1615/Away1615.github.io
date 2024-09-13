@@ -1,0 +1,25 @@
+- class_name: 关于页
+  subtitle: 天地无垠，自在随心✨
+  avatarImg: https://s2.loli.net/2024/09/18/3KSxYCWmDprIH4g.jpg
+  avatarSkills:
+    left:
+      -  iOS开发者
+      - 🎮 美术开发一条龙
+      - 🔨 技术爱好
+      - 🎤 WMLS
+    right:
+      - INFP 🧚
+      - 风光尼康狗头 📷
+      - ACG 文化爱好者 📺
+      - 普通小说家 📚
+  name: 白镜吾
+  description: 一个努力学习，希望实现自身价值的人
+  aboutsiteTips:
+    tips:
+    title1: 人生都太短暂
+    title2: 别想别怕别后退
+    title3: 现在就是永远
+  statistic:
+    link: /archives
+    text: 文章隧道
+    cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
