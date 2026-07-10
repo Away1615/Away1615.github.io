@@ -12,7 +12,7 @@ function getInitialLanguage(): Language {
     return savedLanguage;
   }
 
-  return navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+  return "zh";
 }
 
 function getLocalizedText(element: HTMLElement, language: Language): string {

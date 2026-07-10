@@ -2,14 +2,14 @@ import { localized } from "../data/portfolio";
 
 export const copy = {
   metadata: {
-    title: localized("Wei Dong - Gameplay Programmer", "董玮 - UE5 玩法与游戏客户端程序员"),
+    title: localized("Wei Dong - Gameplay Programmer", "董伟 - UE5 Gameplay 与游戏客户端程序员"),
     description: localized(
       "Wei Dong - UE5 Gameplay and Game Client Programmer portfolio.",
-      "董玮的 UE5 玩法与游戏客户端程序员作品集。"
+      "董伟的 UE5 Gameplay 与游戏客户端程序员作品集。"
     )
   },
   accessibility: {
-    home: localized("Wei Dong home", "董玮主页"),
+    home: localized("Wei Dong home", "董伟主页"),
     navigation: localized("Primary navigation", "主导航"),
     language: localized("Choose language", "选择语言"),
     closeProject: localized("Close project details", "关闭项目详情")
@@ -23,12 +23,18 @@ export const copy = {
     resume: localized("Download CV", "下载简历")
   },
   hero: {
-    availability: localized("Open to gameplay and game client roles", "正在寻找游戏玩法与客户端开发机会"),
-    title: localized("Hi, I'm Wei Dong.", "你好，我是董玮。"),
-    role: localized("UE5 Gameplay / Game Client Programmer", "UE5 玩法 / 游戏客户端程序员"),
+    availability: localized(
+      "Open to Unreal Engine client and gameplay roles",
+      "正在寻找虚幻引擎客户端与 Gameplay 开发机会"
+    ),
+    title: localized("Hi, I'm Wei Dong.", "你好，我是董伟。"),
+    role: localized(
+      "Mobile Client / Unreal Engine Gameplay / Real-Time Rendering",
+      "移动客户端 / 虚幻引擎 Gameplay / 图形渲染"
+    ),
     summary: localized(
-      "I bring three years of production client engineering experience into multiplayer gameplay systems, real-time rendering, and performance-focused C++ development.",
-      "我将三年的大型客户端生产经验，应用于多人玩法系统、实时渲染与注重性能的 C++ 开发。"
+      "I bring three years of large-scale mobile client development and cross-team collaboration to Unreal Engine client and gameplay engineering, with work spanning networking, GAS, real-time rendering, and performance-conscious C++.",
+      "我拥有三年大型移动客户端开发与跨团队协作经验，目前专注于虚幻引擎客户端与 Gameplay 开发，技术方向涵盖网络同步、GAS、实时渲染与注重性能的 C++ 开发。"
     ),
     resume: localized("Download resume", "下载简历"),
     projects: localized("Project showcase", "浏览项目")

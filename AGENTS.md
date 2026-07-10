@@ -10,7 +10,7 @@ recruiters and technical interviewers.
 Identity and links:
 
 - English name: Wei Dong
-- Chinese name: 董玮
+- Chinese name: 董伟
 - GitHub: `Away1615`
 - Email: `isalexpro1615@qq.com`
 - Repository: `https://github.com/Away1615/away1615.github.io`
