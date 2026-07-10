@@ -3,6 +3,7 @@
 Game programmer portfolio built with Astro, TypeScript, and plain CSS.
 
 Requires Node.js 22.12 or later and pnpm 11.
+Project decisions, content context, and current deployment state are documented in `AGENTS.md`.
 
 ## Commands
 
