@@ -20,7 +20,7 @@ export const copy = {
     experience: localized("Experience", "经历"),
     skills: localized("Skills", "技能"),
     contact: localized("Contact", "联系"),
-    resume: localized("View CV", "查看简历")
+    resume: localized("Download CV", "下载简历")
   },
   hero: {
     availability: localized("Open to gameplay and game client roles", "正在寻找游戏玩法与客户端开发机会"),
@@ -30,7 +30,7 @@ export const copy = {
       "I bring three years of production client engineering experience into multiplayer gameplay systems, real-time rendering, and performance-focused C++ development.",
       "我将三年的大型客户端生产经验，应用于多人玩法系统、实时渲染与注重性能的 C++ 开发。"
     ),
-    resume: localized("View resume", "查看简历"),
+    resume: localized("Download resume", "下载简历"),
     projects: localized("Project showcase", "浏览项目")
   },
   about: {

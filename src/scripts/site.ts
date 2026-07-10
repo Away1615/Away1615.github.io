@@ -36,6 +36,17 @@ function translateAriaLabels(language: Language): void {
   }
 }
 
+function updateLocalizedLinks(language: Language): void {
+  const links = document.querySelectorAll<HTMLAnchorElement>("[data-href-en][data-href-zh]");
+
+  for (const link of links) {
+    const href = language === "zh" ? link.dataset.hrefZh! : link.dataset.hrefEn!;
+    const download = language === "zh" ? link.dataset.downloadZh! : link.dataset.downloadEn!;
+    link.setAttribute("href", href);
+    link.setAttribute("download", download);
+  }
+}
+
 function updateMetadata(language: Language): void {
   const root = document.documentElement;
   const description = document.querySelector<HTMLMetaElement>("#meta-description")!;
@@ -57,6 +68,7 @@ function applyLanguage(language: Language): void {
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
   translateText(language);
   translateAriaLabels(language);
+  updateLocalizedLinks(language);
   updateMetadata(language);
   updateLanguageButtons(language);
   localStorage.setItem(languageStorageKey, language);
