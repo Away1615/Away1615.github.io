@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      id="meta-description"
+      name="description"
+      content="Wei Dong - UE5 Gameplay and Game Client Programmer portfolio."
+    />
+    <title>Wei Dong - Gameplay Programmer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Wei Dong home" data-i18n-aria-label="brand.home">
+        <span class="brand-mark">WD</span>
+        <span>Wei Dong</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switch" role="group" aria-label="Language / 语言">
+          <button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+          <button class="language-option" type="button" data-language="zh" aria-pressed="false">中</button>
+        </div>
+        <a class="resume-link" href="./assets/resume/Wei-Dong-Resume-CN.pdf" data-i18n="common.resume">View CV</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero content-width reveal">
+        <p class="availability">
+          <span class="availability-dot" aria-hidden="true"></span>
+          <span data-i18n="hero.availability">Open to gameplay and game client roles</span>
+        </p>
+        <h1 data-i18n="hero.title">Hi, I'm Wei Dong.</h1>
+        <p class="hero-role" data-i18n="hero.role">UE5 Gameplay / Game Client Programmer</p>
+        <p class="hero-summary" data-i18n="hero.summary">
+          I bring three years of production client engineering experience into multiplayer
+          gameplay systems, real-time rendering, and performance-focused C++ development.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="./assets/resume/Wei-Dong-Resume-CN.pdf" data-i18n="common.viewResume">View resume</a>
+          <a class="button" href="#projects" data-i18n="common.projectShowcase">Project showcase</a>
+        </div>
+      </section>
+
+      <section id="about" class="about-section section-space">
+        <div class="content-width about-layout">
+          <header class="section-heading reveal">
+            <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
+            <h2 data-i18n="about.title">Production engineering, redirected toward games.</h2>
+          </header>
+          <div class="about-copy reveal">
+            <p data-i18n="about.paragraphOne">
+              Before moving into game development, I worked as an iOS Client Engineer at
+              ByteDance on Feishu and Doubao. I shipped product features, reusable UI systems,
+              platform capabilities, and client architecture improvements in large production
+              codebases.
+            </p>
+            <p data-i18n="about.paragraphTwo">
+              I am now completing an MSc in Games Engineering at the University of Warwick.
+              My current work focuses on UE5 gameplay, networking and replication, AI systems,
+              DirectX 12 rendering, and CPU performance optimization.
+            </p>
+            <div class="about-facts">
+              <div><strong data-i18n="about.factYearsValue">3 years</strong><span data-i18n="about.factYearsLabel">Production client engineering</span></div>
+              <div><strong data-i18n="about.factProjectsValue">4 projects</strong><span data-i18n="about.factProjectsLabel">Selected game and graphics work</span></div>
+              <div><strong data-i18n="about.factDegreeValue">MSc</strong><span data-i18n="about.factDegreeLabel">Games Engineering at Warwick</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-section section-space content-width">
+        <header class="section-heading reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">Featured projects</p>
+          <h2 data-i18n="projects.title">Gameplay systems and rendering work.</h2>
+          <p data-i18n="projects.intro">Click a project for responsibilities, tools, and technical details.</p>
+        </header>
+
+        <div class="featured-grid">
+          <article class="project-card featured-card reveal">
+            <div class="project-media media-rift">
+              <div class="media-placeholder">
+                <span>RIFT</span>
+                <small data-i18n="projects.riftMedia">Add multiplayer gameplay screenshot or GIF</small>
+              </div>
+              <h3>Rift</h3>
+            </div>
+            <div class="project-content">
+              <div class="tag-list" aria-label="Rift technologies">
+                <span class="tag tag-cpp">C++</span>
+                <span class="tag tag-ue">UE5</span>
+                <span class="tag tag-gas">GAS</span>
+                <span class="tag tag-net">LAN Multiplayer</span>
+              </div>
+              <p data-i18n="projects.riftDescription">
+                A 1-4 player third-person co-op PvE ARPG prototype with lobby flow, replicated
+                combat, encounter waves, enemy AI, boss phases, respawn, and victory handling.
+              </p>
+              <div class="project-actions">
+                <button class="button button-primary project-detail-button" type="button" data-dialog="rift-dialog">
+                  <span data-i18n="common.viewDetails">View details</span>
+                </button>
+                <a class="button github-button" href="https://github.com/Away1615/Rift" target="_blank" rel="noreferrer">
+                  <span>GH</span>GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured-card reveal">
+            <div class="project-media media-dx12">
+              <div class="media-placeholder">
+                <span>DX12-FPS</span>
+                <small data-i18n="projects.dx12Media">Add first-person gameplay capture</small>
+              </div>
+              <h3>DX12-FPS</h3>
+            </div>
+            <div class="project-content">
+              <div class="tag-list" aria-label="DX12-FPS technologies">
+                <span class="tag tag-cpp">C++</span>
+                <span class="tag tag-dx">DirectX 12</span>
+                <span class="tag tag-hlsl">HLSL</span>
+                <span class="tag tag-solo">Solo</span>
+              </div>
+              <p data-i18n="projects.dx12Description">
+                A first-person shooter demo built on a custom DirectX 12 renderer with
+                data-driven levels, component-based gameplay, skeletal meshes, and GPU instancing.
+              </p>
+              <div class="project-actions">
+                <button class="button button-primary project-detail-button" type="button" data-dialog="dx12-dialog">
+                  <span data-i18n="common.viewDetails">View details</span>
+                </button>
+                <a class="button github-button" href="https://github.com/Away1615/DX12-FPS" target="_blank" rel="noreferrer">
+                  <span>GH</span>GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <header class="showcase-heading reveal">
+          <p class="eyebrow" data-i18n="showcase.eyebrow">Project showcase</p>
+          <h2 data-i18n="showcase.title">Focused technical work.</h2>
+        </header>
+
+        <div class="showcase-grid">
+          <article class="project-card reveal">
+            <div class="project-media media-rasterizer">
+              <div class="media-placeholder">
+                <span>2-4x</span>
+                <small data-i18n="projects.rasterizerMedia">Add benchmark visualization</small>
+              </div>
+              <h3>Software Rasterizer</h3>
+            </div>
+            <div class="project-content">
+              <div class="tag-list" aria-label="Rasterizer technologies">
+                <span class="tag tag-cpp">C++</span>
+                <span class="tag tag-simd">AVX SIMD</span>
+                <span class="tag tag-thread">Multithreading</span>
+              </div>
+              <p data-i18n="projects.rasterizerDescription">
+                CPU rasterizer optimization using pipeline improvements, eight-pixel SIMD
+                shading, tile scheduling, and a custom thread pool.
+              </p>
+              <div class="project-actions">
+                <button class="button button-primary project-detail-button" type="button" data-dialog="rasterizer-dialog">
+                  <span data-i18n="common.viewDetails">View details</span>
+                </button>
+                <a class="button github-button" href="https://github.com/Away1615/Rasterizer" target="_blank" rel="noreferrer">
+                  <span>GH</span>GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media media-vehicle">
+              <div class="media-placeholder">
+                <span>VFX</span>
+                <small data-i18n="projects.vehicleMedia">Add vehicle combat footage</small>
+              </div>
+              <h3>UE5 Vehicle Combat</h3>
+            </div>
+            <div class="project-content">
+              <div class="tag-list" aria-label="Vehicle project technologies">
+                <span class="tag tag-ue">UE5</span>
+                <span class="tag tag-blueprint">Blueprint/C++</span>
+                <span class="tag tag-niagara">Niagara</span>
+                <span class="tag tag-team">Team of 6</span>
+              </div>
+              <p data-i18n="projects.vehicleDescription">
+                Team-developed vehicle combat game where I owned dynamic weather, gameplay VFX,
+                Niagara effects, materials, and a Blueprint-facing C++ particle component.
+              </p>
+              <div class="project-actions">
+                <button class="button button-primary project-detail-button" type="button" data-dialog="vehicle-dialog">
+                  <span data-i18n="common.viewDetails">View details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="experience-section section-space">
+        <div class="content-width">
+          <header class="section-heading reveal">
+            <p class="eyebrow" data-i18n="experience.eyebrow">Experience</p>
+            <h2 data-i18n="experience.title">Client engineering meets game systems.</h2>
+          </header>
+          <div class="experience-list">
+            <article class="experience-item reveal">
+              <time>2025 - 2027</time>
+              <div><h3 data-i18n="experience.warwickName">University of Warwick</h3><p data-i18n="experience.warwickDescription">MSc Games Engineering, WMG Excellence Scholarship.</p></div>
+              <span data-i18n="experience.warwickTag">Graphics / Engine / UE5</span>
+            </article>
+            <article class="experience-item reveal">
+              <time>2021 - 2024</time>
+              <div><h3 data-i18n="experience.byteDanceName">ByteDance</h3><p data-i18n="experience.byteDanceDescription">iOS Client Engineer working on Feishu and Doubao production features and shared client systems.</p></div>
+              <span data-i18n="experience.byteDanceTag">Swift / Client Architecture</span>
+            </article>
+            <article class="experience-item reveal">
+              <time>2017 - 2021</time>
+              <div><h3 data-i18n="experience.whutName">Wuhan University of Technology</h3><p data-i18n="experience.whutDescription">BSc Software Engineering.</p></div>
+              <span data-i18n="experience.whutTag">Computer Science</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills-section section-space content-width">
+        <header class="section-heading reveal">
+          <p class="eyebrow" data-i18n="skills.eyebrow">Skills</p>
+          <h2 data-i18n="skills.title">Tools I use to build and debug gameplay.</h2>
+        </header>
+        <div class="skill-groups">
+          <article class="skill-group reveal">
+            <h3 data-i18n="skills.languages">Languages</h3>
+            <div class="tag-list"><span class="tag tag-cpp">C++</span><span class="tag tag-swift">Swift</span><span class="tag tag-python">Python</span><span class="tag tag-hlsl">HLSL</span></div>
+          </article>
+          <article class="skill-group reveal">
+            <h3 data-i18n="skills.gameplay">Gameplay</h3>
+            <div class="tag-list"><span class="tag tag-ue">Unreal Engine 5</span><span class="tag tag-gas">GAS</span><span class="tag tag-net">Networking</span><span class="tag tag-team">Behavior Tree</span></div>
+          </article>
+          <article class="skill-group reveal">
+            <h3 data-i18n="skills.rendering">Rendering</h3>
+            <div class="tag-list"><span class="tag tag-dx">DirectX 12</span><span class="tag tag-simd">Rasterization</span><span class="tag tag-blueprint">Ray Tracing</span><span class="tag tag-thread">BVH</span></div>
+          </article>
+          <article class="skill-group reveal">
+            <h3 data-i18n="skills.performance">Performance</h3>
+            <div class="tag-list"><span class="tag tag-simd">SIMD</span><span class="tag tag-thread">Multithreading</span><span class="tag tag-solo">P99 Analysis</span><span class="tag tag-team">Profiling</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section section-space">
+        <div class="content-width reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 data-i18n="contact.title">Let's build responsive, readable gameplay systems.</h2>
+          <p data-i18n="contact.description">Open to UE5 gameplay and game client opportunities.</p>
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:isalexpro1615@qq.com" data-i18n="contact.email">Email me</a>
+            <a class="button" href="https://github.com/Away1615" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p class="footer-note">Wei Dong / Away1615 / 2026</p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="rift-dialog" class="project-dialog">
+      <button class="dialog-close" type="button" aria-label="Close Rift details" data-i18n-aria-label="dialog.riftClose">X</button>
+      <div class="dialog-media media-rift"><span data-i18n="dialog.riftMedia">Rift gameplay media</span></div>
+      <div class="dialog-content">
+        <p class="eyebrow" data-i18n="dialog.featuredProject">Featured project</p>
+        <h2>Rift</h2>
+        <dl class="project-meta">
+          <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="dialog.riftRole">Solo Gameplay / Systems Programmer</dd></div>
+          <div><dt data-i18n="meta.engine">Engine</dt><dd>Unreal Engine 5 / C++</dd></div>
+          <div><dt data-i18n="meta.platform">Platform</dt><dd data-i18n="dialog.riftPlatform">PC, LAN Multiplayer</dd></div>
+          <div><dt data-i18n="meta.tools">Tools</dt><dd>GAS, Behavior Tree, Visual Studio, Git</dd></div>
+        </dl>
+        <h3 data-i18n="dialog.responsibilities">Responsibilities</h3>
+        <ul>
+          <li data-i18n="dialog.riftItemOne">Implemented room-code joining, lobby readiness, character confirmation, map travel, respawn, and victory flow.</li>
+          <li data-i18n="dialog.riftItemTwo">Built GAS twin-sword combat with combo graph, guard, dodge, RapidSlash, poise, stagger, and replicated attributes.</li>
+          <li data-i18n="dialog.riftItemThree">Created server-authoritative encounter waves, enemy Behavior Trees, shield behavior, and replicated boss phases.</li>
+        </ul>
+        <a class="button button-primary" href="https://github.com/Away1615/Rift" target="_blank" rel="noreferrer" data-i18n="common.openGithub">Open GitHub</a>
+      </div>
+    </dialog>
+
+    <dialog id="dx12-dialog" class="project-dialog">
+      <button class="dialog-close" type="button" aria-label="Close DX12-FPS details" data-i18n-aria-label="dialog.dx12Close">X</button>
+      <div class="dialog-media media-dx12"><span data-i18n="dialog.dx12Media">DX12-FPS gameplay media</span></div>
+      <div class="dialog-content">
+        <p class="eyebrow" data-i18n="dialog.featuredProject">Featured project</p>
+        <h2>DX12-FPS</h2>
+        <dl class="project-meta">
+          <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="dialog.dx12Role">Solo Programmer</dd></div>
+          <div><dt data-i18n="meta.engine">Engine</dt><dd data-i18n="dialog.dx12Engine">Custom DirectX 12 Renderer</dd></div>
+          <div><dt data-i18n="meta.language">Language</dt><dd>C++ / HLSL</dd></div>
+          <div><dt data-i18n="meta.platform">Platform</dt><dd>Windows PC</dd></div>
+        </dl>
+        <h3 data-i18n="dialog.keySystems">Key systems</h3>
+        <ul>
+          <li data-i18n="dialog.dx12ItemOne">Implemented swap chain, frame resources, command lists, render/depth targets, root signatures, PSOs, and shader management.</li>
+          <li data-i18n="dialog.dx12ItemTwo">Built data-driven level loading for textures, shaders, materials, objects, and components.</li>
+          <li data-i18n="dialog.dx12ItemThree">Added first-person controls, weapons, AABB collision, ray shooting, skeletal meshes, normal mapping, and GPU instancing.</li>
+        </ul>
+        <a class="button button-primary" href="https://github.com/Away1615/DX12-FPS" target="_blank" rel="noreferrer" data-i18n="common.openGithub">Open GitHub</a>
+      </div>
+    </dialog>
+
+    <dialog id="rasterizer-dialog" class="project-dialog">
+      <button class="dialog-close" type="button" aria-label="Close Rasterizer details" data-i18n-aria-label="dialog.rasterizerClose">X</button>
+      <div class="dialog-media media-rasterizer"><span data-i18n="dialog.rasterizerMedia">Rasterizer benchmark media</span></div>
+      <div class="dialog-content">
+        <p class="eyebrow" data-i18n="dialog.technicalProject">Technical project</p>
+        <h2>Optimized Software Rasterizer</h2>
+        <dl class="project-meta">
+          <div><dt data-i18n="meta.focus">Focus</dt><dd data-i18n="dialog.rasterizerFocus">CPU Rendering Performance</dd></div>
+          <div><dt data-i18n="meta.language">Language</dt><dd>C++</dd></div>
+          <div><dt data-i18n="meta.optimization">Optimization</dt><dd>AVX SIMD / Multithreading</dd></div>
+          <div><dt data-i18n="meta.result">Result</dt><dd data-i18n="dialog.rasterizerResult">Roughly 2-4x over baseline</dd></div>
+        </dl>
+        <h3 data-i18n="dialog.keyWork">Key work</h3>
+        <ul>
+          <li data-i18n="dialog.rasterizerItemOne">Added vertex cache, pre-normalized lighting, Early-Z, backface and frustum culling.</li>
+          <li data-i18n="dialog.rasterizerItemTwo">Vectorized eight-pixel shading and lighting with AVX SIMD.</li>
+          <li data-i18n="dialog.rasterizerItemThree">Implemented tile-based rendering through a custom thread pool and compared FPS, P99 latency, and speedup.</li>
+        </ul>
+        <a class="button button-primary" href="https://github.com/Away1615/Rasterizer" target="_blank" rel="noreferrer" data-i18n="common.openGithub">Open GitHub</a>
+      </div>
+    </dialog>
+
+    <dialog id="vehicle-dialog" class="project-dialog">
+      <button class="dialog-close" type="button" aria-label="Close Vehicle Combat details" data-i18n-aria-label="dialog.vehicleClose">X</button>
+      <div class="dialog-media media-vehicle"><span data-i18n="dialog.vehicleMedia">Vehicle combat gameplay media</span></div>
+      <div class="dialog-content">
+        <p class="eyebrow" data-i18n="dialog.teamProject">Team project</p>
+        <h2>UE5 Vehicle Combat</h2>
+        <dl class="project-meta">
+          <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="dialog.vehicleRole">Gameplay VFX / Weather Programmer</dd></div>
+          <div><dt data-i18n="meta.team">Team</dt><dd data-i18n="dialog.vehicleTeam">6 people</dd></div>
+          <div><dt data-i18n="meta.engine">Engine</dt><dd>Unreal Engine 5</dd></div>
+          <div><dt data-i18n="meta.tools">Tools</dt><dd>Blueprint, C++, Niagara, Materials</dd></div>
+        </dl>
+        <h3 data-i18n="dialog.responsibilities">Responsibilities</h3>
+        <ul>
+          <li data-i18n="dialog.vehicleItemOne">Implemented sunny, cloudy, and rainy presets with event-driven smooth transitions.</li>
+          <li data-i18n="dialog.vehicleItemTwo">Created rain, ground splashes, lightning, speed lines, missile effects, and tire marks.</li>
+          <li data-i18n="dialog.vehicleItemThree">Built a lightweight C++ particle component exposed to Blueprint for smoke and collision sparks.</li>
+        </ul>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
