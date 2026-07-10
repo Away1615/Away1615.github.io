@@ -24,4 +24,4 @@ Requires Node.js 22.12 or later and pnpm 11.
 - `src/styles/global.css`: global visual system
 - `public`: static files copied directly to the build
 
-The site deploys to `https://away1615.github.io` through GitHub Actions.
+The site deploys to `https://nooobad.com` through GitHub Actions and GitHub Pages.
