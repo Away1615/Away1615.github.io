@@ -2,6 +2,8 @@
 
 Game programmer portfolio built with Astro, TypeScript, and plain CSS.
 
+Requires Node.js 22.12 or later and pnpm 11.
+
 ## Commands
 
 | Command | Action |
