@@ -1,0 +1,155 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import ProjectDialog from "../components/ProjectDialog.astro";
+import {
+  experiences,
+  isFeaturedProject,
+  isShowcaseProject,
+  projects,
+  skillGroups
+} from "../data/portfolio";
+import { copy } from "../i18n/copy";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const featuredProjects = projects.filter(isFeaturedProject);
+const showcaseProjects = projects.filter(isShowcaseProject);
+---
+
+<BaseLayout title={copy.metadata.title} description={copy.metadata.description}>
+  <main id="top">
+    <section class="hero content-width reveal">
+      <p class="availability">
+        <span class="availability-dot" aria-hidden="true"></span>
+        <span data-en={copy.hero.availability.en} data-zh={copy.hero.availability.zh}>{copy.hero.availability.en}</span>
+      </p>
+      <h1 data-en={copy.hero.title.en} data-zh={copy.hero.title.zh}>{copy.hero.title.en}</h1>
+      <p class="hero-role" data-en={copy.hero.role.en} data-zh={copy.hero.role.zh}>{copy.hero.role.en}</p>
+      <p class="hero-summary" data-en={copy.hero.summary.en} data-zh={copy.hero.summary.zh}>{copy.hero.summary.en}</p>
+      <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href="/assets/resume/Wei-Dong-Resume-CN.pdf"
+          data-en={copy.hero.resume.en}
+          data-zh={copy.hero.resume.zh}
+        >
+          {copy.hero.resume.en}
+        </a>
+        <a class="button" href="#projects" data-en={copy.hero.projects.en} data-zh={copy.hero.projects.zh}>
+          {copy.hero.projects.en}
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="about-section section-space">
+      <div class="content-width about-layout">
+        <header class="section-heading reveal">
+          <p class="eyebrow" data-en={copy.about.eyebrow.en} data-zh={copy.about.eyebrow.zh}>{copy.about.eyebrow.en}</p>
+          <h2 data-en={copy.about.title.en} data-zh={copy.about.title.zh}>{copy.about.title.en}</h2>
+        </header>
+        <div class="about-copy reveal">
+          <p data-en={copy.about.paragraphOne.en} data-zh={copy.about.paragraphOne.zh}>{copy.about.paragraphOne.en}</p>
+          <p data-en={copy.about.paragraphTwo.en} data-zh={copy.about.paragraphTwo.zh}>{copy.about.paragraphTwo.en}</p>
+          <div class="about-facts">
+            {copy.about.facts.map((fact) => (
+              <div>
+                <strong data-en={fact.value.en} data-zh={fact.value.zh}>{fact.value.en}</strong>
+                <span data-en={fact.label.en} data-zh={fact.label.zh}>{fact.label.en}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section section-space content-width">
+      <header class="section-heading reveal">
+        <p class="eyebrow" data-en={copy.projects.eyebrow.en} data-zh={copy.projects.eyebrow.zh}>{copy.projects.eyebrow.en}</p>
+        <h2 data-en={copy.projects.title.en} data-zh={copy.projects.title.zh}>{copy.projects.title.en}</h2>
+        <p data-en={copy.projects.intro.en} data-zh={copy.projects.intro.zh}>{copy.projects.intro.en}</p>
+      </header>
+
+      <div class="featured-grid">
+        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+
+      <header class="showcase-heading reveal">
+        <p
+          class="eyebrow"
+          data-en={copy.projects.showcaseEyebrow.en}
+          data-zh={copy.projects.showcaseEyebrow.zh}
+        >
+          {copy.projects.showcaseEyebrow.en}
+        </p>
+        <h2 data-en={copy.projects.showcaseTitle.en} data-zh={copy.projects.showcaseTitle.zh}>
+          {copy.projects.showcaseTitle.en}
+        </h2>
+      </header>
+
+      <div class="showcase-grid">
+        {showcaseProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+
+    <section id="experience" class="experience-section section-space">
+      <div class="content-width">
+        <header class="section-heading reveal">
+          <p class="eyebrow" data-en={copy.experience.eyebrow.en} data-zh={copy.experience.eyebrow.zh}>
+            {copy.experience.eyebrow.en}
+          </p>
+          <h2 data-en={copy.experience.title.en} data-zh={copy.experience.title.zh}>{copy.experience.title.en}</h2>
+        </header>
+        <div class="experience-list">
+          {experiences.map((experience) => (
+            <article class="experience-item reveal">
+              <time>{experience.period}</time>
+              <div>
+                <h3 data-en={experience.name.en} data-zh={experience.name.zh}>{experience.name.en}</h3>
+                <p data-en={experience.description.en} data-zh={experience.description.zh}>{experience.description.en}</p>
+              </div>
+              <span data-en={experience.tag.en} data-zh={experience.tag.zh}>{experience.tag.en}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section section-space content-width">
+      <header class="section-heading reveal">
+        <p class="eyebrow" data-en={copy.skills.eyebrow.en} data-zh={copy.skills.eyebrow.zh}>{copy.skills.eyebrow.en}</p>
+        <h2 data-en={copy.skills.title.en} data-zh={copy.skills.title.zh}>{copy.skills.title.en}</h2>
+      </header>
+      <div class="skill-groups">
+        {skillGroups.map((group) => (
+          <article class="skill-group reveal">
+            <h3 data-en={group.title.en} data-zh={group.title.zh}>{group.title.en}</h3>
+            <div class="tag-list">
+              {group.tags.map((tag) => <span class:list={["tag", `tag-${tag.tone}`]}>{tag.label}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-space">
+      <div class="content-width reveal">
+        <p class="eyebrow" data-en={copy.contact.eyebrow.en} data-zh={copy.contact.eyebrow.zh}>{copy.contact.eyebrow.en}</p>
+        <h2 data-en={copy.contact.title.en} data-zh={copy.contact.title.zh}>{copy.contact.title.en}</h2>
+        <p data-en={copy.contact.description.en} data-zh={copy.contact.description.zh}>{copy.contact.description.en}</p>
+        <div class="contact-actions">
+          <a
+            class="button button-primary"
+            href="mailto:isalexpro1615@qq.com"
+            data-en={copy.contact.email.en}
+            data-zh={copy.contact.email.zh}
+          >
+            {copy.contact.email.en}
+          </a>
+          <a class="button" href="https://github.com/Away1615" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <p class="footer-note">Wei Dong / Away1615 / 2026</p>
+      </div>
+    </section>
+  </main>
+
+  {projects.map((project) => <ProjectDialog project={project} />)}
+</BaseLayout>

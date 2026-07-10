@@ -1,0 +1,36 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import type { LocalizedText } from "../data/portfolio";
+import "../styles/global.css";
+
+interface Props {
+  title: LocalizedText;
+  description: LocalizedText;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-title-en={title.en}
+  data-title-zh={title.zh}
+  data-description-en={description.en}
+  data-description-zh={description.zh}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta id="meta-description" name="description" content={description.en} />
+    <title>{title.en}</title>
+    <script is:inline>document.documentElement.classList.add("js");</script>
+  </head>
+  <body>
+    <SiteHeader />
+    <slot />
+    <script>
+      import "../scripts/site";
+    </script>
+  </body>
+</html>

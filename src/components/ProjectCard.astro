@@ -1,0 +1,36 @@
+---
+import type { Project } from "../data/portfolio";
+import { copy } from "../i18n/copy";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class:list={["project-card", { "featured-card": project.featured }, "reveal"]}>
+  <div class:list={["project-media", project.mediaClass]}>
+    <div class="media-placeholder">
+      <span>{project.mediaBadge}</span>
+      <small data-en={project.mediaHint.en} data-zh={project.mediaHint.zh}>{project.mediaHint.en}</small>
+    </div>
+    <h3>{project.title}</h3>
+  </div>
+  <div class="project-content">
+    <div class="tag-list" aria-label={`${project.title} technologies`}>
+      {project.tags.map((tag) => <span class:list={["tag", `tag-${tag.tone}`]}>{tag.label}</span>)}
+    </div>
+    <p data-en={project.description.en} data-zh={project.description.zh}>{project.description.en}</p>
+    <div class="project-actions">
+      <button class="button button-primary project-detail-button" type="button" data-dialog={`${project.id}-dialog`}>
+        <span data-en={copy.projects.details.en} data-zh={copy.projects.details.zh}>{copy.projects.details.en}</span>
+      </button>
+      {project.github && (
+        <a class="button github-button" href={project.github} target="_blank" rel="noreferrer">
+          <span>GH</span>GitHub
+        </a>
+      )}
+    </div>
+  </div>
+</article>

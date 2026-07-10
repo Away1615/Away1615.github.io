@@ -1,0 +1,48 @@
+---
+import { copy } from "../i18n/copy";
+---
+
+<header class="site-header">
+  <a
+    class="brand"
+    href="#top"
+    aria-label={copy.accessibility.home.en}
+    data-aria-en={copy.accessibility.home.en}
+    data-aria-zh={copy.accessibility.home.zh}
+  >
+    <span class="brand-mark">WD</span>
+    <span>Wei Dong</span>
+  </a>
+  <nav
+    class="site-nav"
+    aria-label={copy.accessibility.navigation.en}
+    data-aria-en={copy.accessibility.navigation.en}
+    data-aria-zh={copy.accessibility.navigation.zh}
+  >
+    <a href="#about" data-en={copy.navigation.about.en} data-zh={copy.navigation.about.zh}>{copy.navigation.about.en}</a>
+    <a href="#projects" data-en={copy.navigation.projects.en} data-zh={copy.navigation.projects.zh}>{copy.navigation.projects.en}</a>
+    <a href="#experience" data-en={copy.navigation.experience.en} data-zh={copy.navigation.experience.zh}>{copy.navigation.experience.en}</a>
+    <a href="#skills" data-en={copy.navigation.skills.en} data-zh={copy.navigation.skills.zh}>{copy.navigation.skills.en}</a>
+    <a href="#contact" data-en={copy.navigation.contact.en} data-zh={copy.navigation.contact.zh}>{copy.navigation.contact.en}</a>
+  </nav>
+  <div class="header-actions">
+    <div
+      class="language-switch"
+      role="group"
+      aria-label={copy.accessibility.language.en}
+      data-aria-en={copy.accessibility.language.en}
+      data-aria-zh={copy.accessibility.language.zh}
+    >
+      <button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+      <button class="language-option" type="button" data-language="zh" aria-pressed="false">中</button>
+    </div>
+    <a
+      class="resume-link"
+      href="/assets/resume/Wei-Dong-Resume-CN.pdf"
+      data-en={copy.navigation.resume.en}
+      data-zh={copy.navigation.resume.zh}
+    >
+      {copy.navigation.resume.en}
+    </a>
+  </div>
+</header>

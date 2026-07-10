@@ -1,10 +1,25 @@
-# Wei Dong Portfolio Demo
+# Wei Dong Portfolio
 
-Static visual demo for a game client / UE5 gameplay portfolio.
+Game programmer portfolio built with Astro, TypeScript, and plain CSS.
 
-Open `index.html` in a browser to review the first pass layout.
+## Commands
 
-This demo intentionally uses marked media placeholders. Replace them with real gameplay
-screenshots, GIFs, or video thumbnails before treating the site as production material.
+| Command | Action |
+| --- | --- |
+| `pnpm install` | Install dependencies |
+| `pnpm dev` | Start the local development server |
+| `pnpm check` | Run Astro and TypeScript checks |
+| `pnpm build` | Check and build the production site |
+| `pnpm preview` | Preview the production build |
 
-Current visual direction: person-first gameplay portfolio with media cards, technology tags, and project detail dialogs.
+## Project structure
+
+- `src/pages/index.astro`: page composition
+- `src/components`: reusable interface components
+- `src/data/portfolio.ts`: projects, experience, and skills
+- `src/i18n/copy.ts`: bilingual page copy
+- `src/scripts/site.ts`: language, reveal, and dialog behavior
+- `src/styles/global.css`: global visual system
+- `public`: static files copied directly to the build
+
+The site deploys to `https://away1615.github.io` through GitHub Actions.
