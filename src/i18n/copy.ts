@@ -28,10 +28,7 @@ export const copy = {
       "正在寻找虚幻引擎客户端与 Gameplay 开发机会"
     ),
     title: localized("Hi, I'm Wei Dong.", "你好，我是董伟。"),
-    role: localized(
-      "Mobile Client / Unreal Engine Gameplay / Real-Time Rendering",
-      "移动客户端 / 虚幻引擎 Gameplay / 图形渲染"
-    ),
+    role: localized("Unreal Engine Gameplay Programmer", "虚幻引擎 Gameplay 程序员"),
     summary: localized(
       "I bring three years of large-scale mobile client development and cross-team collaboration to Unreal Engine client and gameplay engineering, with work spanning networking, GAS, real-time rendering, and performance-conscious C++.",
       "我拥有三年大型移动客户端开发与跨团队协作经验，目前专注于虚幻引擎客户端与 Gameplay 开发，技术方向涵盖网络同步、GAS、实时渲染与注重性能的 C++ 开发。"
