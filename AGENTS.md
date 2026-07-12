@@ -71,7 +71,7 @@ Current featured work:
 
 Background:
 
-- MSc Games Engineering at the University of Warwick, 2025-2027.
+- MSc Games Engineering at the University of Warwick, 2025-2026.
 - iOS Client Engineer at ByteDance, 2021-2024, working on Feishu and Doubao.
 - BSc Software Engineering at Wuhan University of Technology, 2017-2021.
 

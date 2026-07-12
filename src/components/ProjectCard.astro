@@ -9,7 +9,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class:list={["project-card", { "featured-card": project.featured }, "reveal"]}>
+<article class="project-card reveal">
   <div class:list={["project-media", project.mediaClass]}>
     <div class="media-placeholder">
       <span>{project.mediaBadge}</span>

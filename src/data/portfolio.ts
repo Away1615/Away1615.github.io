@@ -17,7 +17,6 @@ export interface Project {
   id: string;
   title: string;
   dialogTitle: string;
-  featured: boolean;
   mediaClass: string;
   mediaBadge: string;
   mediaHint: LocalizedText;
@@ -56,7 +55,6 @@ export const projects: Project[] = [
     id: "rift",
     title: "Rift",
     dialogTitle: "Rift",
-    featured: true,
     mediaClass: "media-rift",
     mediaBadge: "RIFT",
     mediaHint: localized("Add multiplayer gameplay screenshot or GIF", "添加多人游戏截图或 GIF"),
@@ -72,7 +70,7 @@ export const projects: Project[] = [
       { label: "LAN Multiplayer", tone: "net" }
     ],
     github: "https://github.com/Away1615/Rift",
-    dialogType: localized("Featured project", "精选项目"),
+    dialogType: localized("Project", "项目"),
     metadata: [
       { label: localized("Role", "角色"), value: localized("Solo Gameplay / Systems Programmer", "独立玩法 / 系统程序员") },
       { label: localized("Engine", "引擎"), value: same("Unreal Engine 5 / C++") },
@@ -99,7 +97,6 @@ export const projects: Project[] = [
     id: "dx12",
     title: "DX12-FPS",
     dialogTitle: "DX12-FPS",
-    featured: true,
     mediaClass: "media-dx12",
     mediaBadge: "DX12-FPS",
     mediaHint: localized("Add first-person gameplay capture", "添加第一人称游戏画面"),
@@ -115,7 +112,7 @@ export const projects: Project[] = [
       { label: "Solo", tone: "solo" }
     ],
     github: "https://github.com/Away1615/DX12-FPS",
-    dialogType: localized("Featured project", "精选项目"),
+    dialogType: localized("Project", "项目"),
     metadata: [
       { label: localized("Role", "角色"), value: localized("Solo Programmer", "独立程序员") },
       { label: localized("Engine", "引擎"), value: localized("Custom DirectX 12 Renderer", "自研 DirectX 12 渲染器") },
@@ -142,7 +139,6 @@ export const projects: Project[] = [
     id: "rasterizer",
     title: "Software Rasterizer",
     dialogTitle: "Optimized Software Rasterizer",
-    featured: false,
     mediaClass: "media-rasterizer",
     mediaBadge: "2-4x",
     mediaHint: localized("Add benchmark visualization", "添加性能对比可视化"),
@@ -184,7 +180,6 @@ export const projects: Project[] = [
     id: "vehicle",
     title: "UE5 Vehicle Combat",
     dialogTitle: "UE5 Vehicle Combat",
-    featured: false,
     mediaClass: "media-vehicle",
     mediaBadge: "VFX",
     mediaHint: localized("Add vehicle combat footage", "添加载具战斗画面"),
@@ -226,7 +221,7 @@ export const projects: Project[] = [
 
 export const experiences: ExperienceItem[] = [
   {
-    period: "2025 - 2027",
+    period: "2025 - 2026",
     name: localized("University of Warwick", "华威大学"),
     description: localized("MSc Games Engineering, WMG Excellence Scholarship.", "游戏工程硕士，WMG Excellence Scholarship。"),
     tag: localized("Graphics / Engine / UE5", "图形 / 引擎 / UE5")
@@ -235,8 +230,8 @@ export const experiences: ExperienceItem[] = [
     period: "2021 - 2024",
     name: localized("ByteDance", "字节跳动"),
     description: localized(
-      "iOS Client Engineer working on Feishu and Doubao production features and shared client systems.",
-      "iOS 客户端工程师，参与飞书、豆包生产功能与客户端公共系统建设。"
+      "iOS Client Engineer developing and iterating client features for Feishu and Doubao.",
+      "iOS 客户端工程师，参与飞书、豆包客户端功能迭代开发。"
     ),
     tag: localized("Swift / Client Architecture", "Swift / 客户端架构")
   },
@@ -244,7 +239,7 @@ export const experiences: ExperienceItem[] = [
     period: "2017 - 2021",
     name: localized("Wuhan University of Technology", "武汉理工大学"),
     description: localized("BSc Software Engineering.", "软件工程学士。"),
-    tag: localized("Computer Science", "计算机科学")
+    tag: localized("Software Engineering", "软件工程")
   }
 ];
 
@@ -286,11 +281,3 @@ export const skillGroups: SkillGroup[] = [
     ]
   }
 ];
-
-export function isFeaturedProject(project: Project): boolean {
-  return project.featured;
-}
-
-export function isShowcaseProject(project: Project): boolean {
-  return !project.featured;
-}
