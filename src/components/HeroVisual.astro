@@ -1,0 +1,43 @@
+---
+import LogoMark from "./LogoMark.astro";
+---
+
+<div class="hero-visual reveal" aria-hidden="true">
+  <svg class="hero-visual-geometry" viewBox="0 0 640 640" fill="none">
+    <defs>
+      <linearGradient id="hero-blue" x1="120" y1="320" x2="560" y2="40" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1872e8" />
+        <stop offset="1" stop-color="#315df5" />
+      </linearGradient>
+      <linearGradient id="hero-cyan" x1="430" y1="590" x2="610" y2="390" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#38b9d0" />
+        <stop offset="1" stop-color="#51d0df" />
+      </linearGradient>
+    </defs>
+
+    <path d="M58 325 227 104h118L176 325Z" fill="url(#hero-blue)" />
+    <path d="m354 196 144-171h106L460 196Z" fill="url(#hero-blue)" />
+    <path d="m405 615 151-205h95L500 615Z" fill="url(#hero-cyan)" />
+
+    <path class="geometry-line" d="m20 335 184-239h148" />
+    <path class="geometry-line" d="m333 211 151-180h132" />
+    <path class="geometry-line" d="m381 628 164-224h95" />
+    <path class="geometry-line geometry-line-muted" d="m182 359 88-107h205l83 99-149 196H258l-82-100" />
+    <path class="geometry-line geometry-line-muted" d="m221 343 69-82h166l64 77-123 163H280l-65-78" />
+    <path class="geometry-line" d="M47 342h154M30 351h45M438 215h173M416 226h57M405 590h91M515 590h102" />
+
+    <path class="geometry-accent" d="M109 87h11v11h-11zM498 245h8v8h-8z" />
+    <path class="geometry-dashes" d="M536 376h8m8 0h8m8 0h8m8 0h8m8 0h8M194 566h8m8 0h8m8 0h8" />
+  </svg>
+
+  <div class="hero-logo-panel">
+    <LogoMark class="hero-display-mark" />
+  </div>
+
+  <div class="hero-system-list">
+    <span>// SYSTEMS</span>
+    <span>// GAMEPLAY</span>
+    <span>// NETWORK</span>
+    <span>// RENDERING</span>
+  </div>
+</div>

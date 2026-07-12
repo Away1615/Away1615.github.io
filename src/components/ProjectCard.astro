@@ -4,20 +4,24 @@ import { copy } from "../i18n/copy";
 
 interface Props {
   project: Project;
+  index: number;
 }
 
-const { project } = Astro.props;
+const { project, index } = Astro.props;
+const displayIndex = String(index + 1).padStart(2, "0");
 ---
 
 <article class="project-card reveal">
   <div class:list={["project-media", project.mediaClass]}>
+    <span class="project-media-index" aria-hidden="true">PROJECT / {displayIndex}</span>
     <div class="media-placeholder">
       <span>{project.mediaBadge}</span>
       <small data-en={project.mediaHint.en} data-zh={project.mediaHint.zh}>{project.mediaHint.en}</small>
     </div>
-    <h3>{project.title}</h3>
   </div>
   <div class="project-content">
+    <p class="project-kicker" aria-hidden="true">PROJECT / {displayIndex}</p>
+    <h3>{project.title}</h3>
     <div class="tag-list" aria-label={`${project.title} technologies`}>
       {project.tags.map((tag) => <span class:list={["tag", `tag-${tag.tone}`]}>{tag.label}</span>)}
     </div>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  index: string;
+  label: string;
+}
+
+const { index, label } = Astro.props;
+---
+
+<aside class="section-rail" aria-hidden="true">
+  <span class="rail-index">{index}</span>
+  <span class="rail-slash">/</span>
+  <span class="rail-label">{label}</span>
+  <span class="rail-line"><i></i></span>
+</aside>

@@ -1,5 +1,6 @@
 ---
 import { copy } from "../i18n/copy";
+import LogoMark from "./LogoMark.astro";
 ---
 
 <header class="site-header">
@@ -10,13 +11,7 @@ import { copy } from "../i18n/copy";
     data-aria-en={copy.accessibility.home.en}
     data-aria-zh={copy.accessibility.home.zh}
   >
-    <img
-      class="brand-mark"
-      src="/assets/icon/logo-transparent.png"
-      alt=""
-      width="38"
-      height="38"
-    />
+    <LogoMark class="brand-mark" />
     <span>Wei Dong</span>
   </a>
   <nav
