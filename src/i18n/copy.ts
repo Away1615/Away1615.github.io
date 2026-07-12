@@ -48,8 +48,8 @@ export const copy = {
       "我目前正在华威大学攻读游戏工程硕士，当前工作聚焦于 UE5 玩法开发、网络与复制、AI 系统、DirectX 12 渲染及 CPU 性能优化。"
     ),
     paragraphThree: localized(
-      "Outside engineering, I enjoy photography and drawing. My experience in large-scale client development has also shaped how I write code: while solving practical problems, I value clear design, long-term extensibility, and implementations that remain simple and elegant.",
-      "工作之外，我喜欢摄影与绘画。过往的大型客户端工程经历也塑造了我的编码习惯：在解决实际问题的同时，我重视清晰的设计、长期可扩展性，以及简洁而优雅的实现。"
+      "Outside engineering, I enjoy photography and drawing. My previous experience in client engineering has led me to place greater emphasis on clear system design, long-term extensibility, and implementations that are both simple and elegant.",
+      "工作之外，我喜欢摄影与绘画。此前的客户端开发经历让我在编码时更加重视清晰的工程设计、长期可扩展性，以及简洁而优雅的实现。"
     )
   },
   projects: {
