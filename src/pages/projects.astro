@@ -1,6 +1,5 @@
 ---
-import ProjectDialog from "../components/ProjectDialog.astro";
-import { projects } from "../data/portfolio";
+import { getProjectPath, projects } from "../data/portfolio";
 import { copy } from "../i18n/copy";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -37,38 +36,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <ol class="archive-list">
         {projects.map((project, index) => (
-          <li class="archive-row reveal">
-            <span class="archive-number">{String(index + 1).padStart(2, "0")}</span>
-            <div class="archive-project-summary">
-              <button
-                class="archive-project-title project-detail-button"
-                type="button"
-                data-dialog={`${project.id}-dialog`}
-              >
-                <span>{project.title}</span>
-                <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
-              </button>
-              <p data-en={project.cardLabel.en} data-zh={project.cardLabel.zh}>{project.cardLabel.en}</p>
-            </div>
-            <ul class="tag-list archive-tag-list" aria-label={`${project.title} technologies`}>
-              {project.tags.map((tag) => <li class="tag">{tag.label}</li>)}
-            </ul>
-            <div class="archive-row-actions">
-              <button class="text-link project-detail-button" type="button" data-dialog={`${project.id}-dialog`}>
-                <span data-en={copy.archive.details.en} data-zh={copy.archive.details.zh}>{copy.archive.details.en}</span>
-                <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
-              </button>
-              {project.github && (
-                <a class="text-link" href={project.github} target="_blank" rel="noreferrer">
-                  GitHub <span class="link-arrow link-arrow-external" aria-hidden="true">↗</span>
+            <li class="archive-row reveal" data-project-href={getProjectPath(project.id)}>
+              <span class="archive-number">{String(index + 1).padStart(2, "0")}</span>
+              <div class="archive-project-summary">
+                <a class="archive-project-title" href={getProjectPath(project.id)}>
+                  <span>{project.title}</span>
+                  <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
                 </a>
-              )}
-            </div>
-          </li>
+                <p data-en={project.cardLabel.en} data-zh={project.cardLabel.zh}>{project.cardLabel.en}</p>
+              </div>
+              <ul class="tag-list archive-tag-list" aria-label={`${project.title} technologies`}>
+                {project.tags.map((tag) => <li class="tag">{tag.label}</li>)}
+              </ul>
+              <div class="archive-row-actions">
+                <a class="text-link" href={getProjectPath(project.id)}>
+                  <span data-en={copy.archive.details.en} data-zh={copy.archive.details.zh}>{copy.archive.details.en}</span>
+                  <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
+                </a>
+                {project.github && (
+                  <a class="text-link" href={project.github} target="_blank" rel="noreferrer">
+                    GitHub <span class="link-arrow link-arrow-external" aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            </li>
         ))}
       </ol>
     </section>
-
-    {projects.map((project) => <ProjectDialog project={project} />)}
   </main>
 </BaseLayout>

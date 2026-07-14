@@ -1,7 +1,6 @@
 ---
 import LogoMark from "../components/LogoMark.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import ProjectDialog from "../components/ProjectDialog.astro";
 import SocialIcon from "../components/SocialIcon.astro";
 import { experiences, projects, skillGroups } from "../data/portfolio";
 import { copy } from "../i18n/copy";
@@ -212,6 +211,4 @@ const education = experiences.filter((experience) => experience.category === "ed
 
     </div>
   </main>
-
-  {projects.map((project) => <ProjectDialog project={project} />)}
 </BaseLayout>

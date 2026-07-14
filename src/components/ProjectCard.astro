@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../data/portfolio";
+import { getProjectPath } from "../data/portfolio";
 import { copy } from "../i18n/copy";
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
 
 const { project, index } = Astro.props;
 const displayIndex = String(index + 1).padStart(2, "0");
+const detailHref = getProjectPath(project.id);
 ---
 
-<article class="project-card reveal" data-dialog={`${project.id}-dialog`}>
+<article class="project-card reveal" data-project-href={detailHref}>
   <div class:list={["project-media", project.mediaClass]} aria-hidden="true">
     <span class="project-media-index">{displayIndex}</span>
     <div class="media-placeholder">
@@ -30,10 +32,10 @@ const displayIndex = String(index + 1).padStart(2, "0");
       {project.tags.map((tag) => <li class="tag">{tag.label}</li>)}
     </ul>
     <div class="project-actions">
-      <button class="text-link project-detail-button" type="button" data-dialog={`${project.id}-dialog`}>
+      <a class="text-link project-detail-link" href={detailHref}>
         <span data-en={copy.projects.details.en} data-zh={copy.projects.details.zh}>{copy.projects.details.en}</span>
         <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
-      </button>
+      </a>
       {project.github && (
         <a class="text-link" href={project.github} target="_blank" rel="noreferrer">
           GitHub <span class="link-arrow link-arrow-external" aria-hidden="true">↗</span>

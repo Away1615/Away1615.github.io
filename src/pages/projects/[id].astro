@@ -1,0 +1,110 @@
+---
+import type { Project } from "../../data/portfolio";
+import { localized, projects } from "../../data/portfolio";
+import { copy } from "../../i18n/copy";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project }
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.detailTitle} - 董伟`);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={project.description}
+  pageClass="archive-page project-detail-page"
+  homeHref="/"
+>
+  <main id="top" class="project-detail-shell">
+    <a class="archive-back" href="/#projects">
+      <span class="archive-back-arrow" aria-hidden="true">←</span>
+      <span data-en={copy.projectDetail.back.en} data-zh={copy.projectDetail.back.zh}>
+        {copy.projectDetail.back.en}
+      </span>
+    </a>
+
+    <header class="project-detail-hero reveal">
+      <p
+        class="archive-eyebrow"
+        data-en={project.detailType.en}
+        data-zh={project.detailType.zh}
+      >
+        {project.detailType.en}
+      </p>
+      <h1>{project.detailTitle}</h1>
+      <p data-en={project.description.en} data-zh={project.description.zh}>{project.description.en}</p>
+      <ul class="tag-list" aria-label={`${project.title} technologies`}>
+        {project.tags.map((tag) => <li class="tag">{tag.label}</li>)}
+      </ul>
+    </header>
+
+    <div
+      class:list={["project-detail-media", project.mediaClass, "reveal"]}
+      role="img"
+      aria-label={project.mediaLabel.en}
+      data-aria-en={project.mediaLabel.en}
+      data-aria-zh={project.mediaLabel.zh}
+    >
+      <span data-en={project.mediaLabel.en} data-zh={project.mediaLabel.zh}>{project.mediaLabel.en}</span>
+    </div>
+
+    <section class="project-detail-overview reveal" aria-labelledby="project-overview-title">
+      <h2
+        id="project-overview-title"
+        data-en={copy.projectDetail.overview.en}
+        data-zh={copy.projectDetail.overview.zh}
+      >
+        {copy.projectDetail.overview.en}
+      </h2>
+      <dl class="project-meta">
+        {project.metadata.map((item) => (
+          <div>
+            <dt data-en={item.label.en} data-zh={item.label.zh}>{item.label.en}</dt>
+            <dd data-en={item.value.en} data-zh={item.value.zh}>{item.value.en}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    {project.detailSections.map((section, sectionIndex) => (
+      <section class="project-detail-section reveal">
+        <header class="project-detail-section-header">
+          <span>{String(sectionIndex + 1).padStart(2, "0")}</span>
+          <div>
+            <h2 data-en={section.heading.en} data-zh={section.heading.zh}>{section.heading.en}</h2>
+            {section.introduction && (
+              <p data-en={section.introduction.en} data-zh={section.introduction.zh}>
+                {section.introduction.en}
+              </p>
+            )}
+          </div>
+        </header>
+        <ol class:list={["project-detail-list", section.layout === "flow" && "project-detail-flow"]}>
+          {section.items.map((item, itemIndex) => (
+            <li>
+              <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+              <p data-en={item.en} data-zh={item.zh}>{item.en}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+
+    <a class="project-detail-all" href="/projects/">
+      <span data-en={copy.projectDetail.allProjects.en} data-zh={copy.projectDetail.allProjects.zh}>
+        {copy.projectDetail.allProjects.en}
+      </span>
+      <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
+    </a>
+  </main>
+</BaseLayout>

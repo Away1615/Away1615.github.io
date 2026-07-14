@@ -12,14 +12,13 @@ export const copy = {
     home: localized("Wei Dong home", "董伟主页"),
     navigation: localized("Primary navigation", "主导航"),
     language: localized("Choose language", "选择语言"),
-    socialLinks: localized("Social links", "社交链接"),
-    closeProject: localized("Close project details", "关闭项目详情")
+    socialLinks: localized("Social links", "社交链接")
   },
   navigation: {
     about: localized("Profile", "个人"),
     projects: localized("Projects", "项目"),
     experience: localized("Experience", "经历"),
-    skills: localized("Capabilities", "能力"),
+    skills: localized("Skills", "技能"),
     resume: localized("View CV", "查看简历")
   },
   hero: {
@@ -57,8 +56,7 @@ export const copy = {
   },
   projects: {
     eyebrow: localized("Projects", "项目"),
-    details: localized("Read case study", "查看技术详情"),
-    openGithub: localized("Open GitHub", "查看 GitHub"),
+    details: localized("View details", "查看详情"),
     archiveLink: localized("View Full Project Archive", "查看完整项目列表")
   },
   archive: {
@@ -78,7 +76,12 @@ export const copy = {
     project: localized("Project / focus", "项目 / 方向"),
     technologies: localized("Built with", "技术栈"),
     links: localized("Links", "链接"),
-    details: localized("Details", "详情")
+    details: localized("View details", "查看详情")
+  },
+  projectDetail: {
+    back: localized("Back to projects", "返回项目"),
+    overview: localized("Project overview", "项目概览"),
+    allProjects: localized("View all projects", "查看全部项目")
   },
   experience: {
     eyebrow: localized("Experience", "经历"),
@@ -86,6 +89,6 @@ export const copy = {
     education: localized("Education", "教育经历")
   },
   skills: {
-    eyebrow: localized("Capabilities", "能力方向")
+    eyebrow: localized("Skills", "技能")
   }
 };

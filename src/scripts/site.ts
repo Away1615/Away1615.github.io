@@ -105,62 +105,25 @@ function setupRevealAnimation(): void {
   }
 }
 
-function showProjectDialog(dialogId: string): void {
-  const dialog = document.getElementById(dialogId) as HTMLDialogElement;
-  dialog.showModal();
-}
-
-function openProjectDialog(event: Event): void {
-  const trigger = event.currentTarget as HTMLElement;
-  showProjectDialog(trigger.dataset.dialog!);
-}
-
-function openProjectCardDialog(event: Event): void {
+function openProjectPage(event: MouseEvent): void {
   const target = event.target as Element;
-  if (target.closest("a, button")) {
+  if (target.closest("a")) {
     return;
   }
 
-  openProjectDialog(event);
+  const project = event.currentTarget as HTMLElement;
+  window.location.href = project.dataset.projectHref!;
 }
 
-function closeProjectDialog(event: Event): void {
-  const button = event.currentTarget as HTMLButtonElement;
-  const dialog = button.closest("dialog") as HTMLDialogElement;
-  dialog.close();
-}
+function setupProjectNavigation(): void {
+  const projects = document.querySelectorAll<HTMLElement>("[data-project-href]");
 
-function closeDialogBackdrop(event: MouseEvent): void {
-  if (event.target === event.currentTarget) {
-    const dialog = event.currentTarget as HTMLDialogElement;
-    dialog.close();
-  }
-}
-
-function setupProjectDialogs(): void {
-  const openButtons = document.querySelectorAll<HTMLButtonElement>(".project-detail-button");
-  const projectCards = document.querySelectorAll<HTMLElement>(".project-card[data-dialog]");
-  const closeButtons = document.querySelectorAll<HTMLButtonElement>(".dialog-close");
-  const dialogs = document.querySelectorAll<HTMLDialogElement>(".project-dialog");
-
-  for (const button of openButtons) {
-    button.addEventListener("click", openProjectDialog);
-  }
-
-  for (const card of projectCards) {
-    card.addEventListener("click", openProjectCardDialog);
-  }
-
-  for (const button of closeButtons) {
-    button.addEventListener("click", closeProjectDialog);
-  }
-
-  for (const dialog of dialogs) {
-    dialog.addEventListener("click", closeDialogBackdrop);
+  for (const project of projects) {
+    project.addEventListener("click", openProjectPage);
   }
 }
 
 setupLanguageSwitch();
 applyLanguage(getInitialLanguage());
 setupRevealAnimation();
-setupProjectDialogs();
+setupProjectNavigation();
