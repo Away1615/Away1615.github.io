@@ -6,9 +6,11 @@ import "../styles/global.css";
 interface Props {
   title: LocalizedText;
   description: LocalizedText;
+  pageClass?: string;
+  homeHref?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, pageClass = "", homeHref = "" } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const { title, description } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta id="meta-description" name="description" content={description.en} />
-    <meta name="theme-color" content="#090a0d" />
+    <meta name="theme-color" content="#0b1120" />
     <link rel="icon" type="image/svg+xml" href="/assets/icon/logo.svg" />
     <link rel="icon" href="/assets/icon/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png" />
@@ -33,8 +35,8 @@ const { title, description } = Astro.props;
     <title>{title.en}</title>
     <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
-  <body>
-    <SiteHeader />
+  <body class={pageClass}>
+    <SiteHeader rootHref={homeHref} />
     <slot />
     <script>
       import "../scripts/site";

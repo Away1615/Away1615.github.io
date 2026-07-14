@@ -17,6 +17,7 @@ export interface Project {
   id: string;
   title: string;
   dialogTitle: string;
+  cardLabel: LocalizedText;
   mediaClass: string;
   mediaBadge: string;
   mediaHint: LocalizedText;
@@ -31,6 +32,7 @@ export interface Project {
 }
 
 export interface ExperienceItem {
+  category: "work" | "education";
   period: string;
   name: LocalizedText;
   description: LocalizedText;
@@ -55,9 +57,10 @@ export const projects: Project[] = [
     id: "rift",
     title: "Rift",
     dialogTitle: "Rift",
+    cardLabel: localized("Solo gameplay / systems programming", "独立玩法 / 系统开发"),
     mediaClass: "media-rift",
     mediaBadge: "RIFT",
-    mediaHint: localized("Add multiplayer gameplay screenshot or GIF", "添加多人游戏截图或 GIF"),
+    mediaHint: localized("UE5 co-op PvE", "UE5 合作 PvE"),
     mediaLabel: localized("Rift gameplay media", "Rift 游戏画面"),
     description: localized(
       "A 1-4 player third-person co-op PvE ARPG prototype with lobby flow, replicated combat, encounter waves, enemy AI, boss phases, respawn, and victory handling.",
@@ -97,9 +100,10 @@ export const projects: Project[] = [
     id: "dx12",
     title: "DX12-FPS",
     dialogTitle: "DX12-FPS",
+    cardLabel: localized("Solo programming / custom renderer", "独立开发 / 自研渲染器"),
     mediaClass: "media-dx12",
     mediaBadge: "DX12-FPS",
-    mediaHint: localized("Add first-person gameplay capture", "添加第一人称游戏画面"),
+    mediaHint: localized("DirectX 12 renderer", "DirectX 12 渲染器"),
     mediaLabel: localized("DX12-FPS gameplay media", "DX12-FPS 游戏画面"),
     description: localized(
       "A first-person shooter demo built on a custom DirectX 12 renderer with data-driven levels, component-based gameplay, skeletal meshes, and GPU instancing.",
@@ -139,9 +143,10 @@ export const projects: Project[] = [
     id: "rasterizer",
     title: "Software Rasterizer",
     dialogTitle: "Optimized Software Rasterizer",
+    cardLabel: localized("CPU rendering performance", "CPU 渲染性能优化"),
     mediaClass: "media-rasterizer",
     mediaBadge: "2-4x",
-    mediaHint: localized("Add benchmark visualization", "添加性能对比可视化"),
+    mediaHint: localized("SIMD / multithreading", "SIMD / 多线程"),
     mediaLabel: localized("Rasterizer benchmark media", "光栅器性能测试画面"),
     description: localized(
       "CPU rasterizer optimization using pipeline improvements, eight-pixel SIMD shading, tile scheduling, and a custom thread pool.",
@@ -180,9 +185,10 @@ export const projects: Project[] = [
     id: "vehicle",
     title: "UE5 Vehicle Combat",
     dialogTitle: "UE5 Vehicle Combat",
+    cardLabel: localized("Team project / gameplay VFX & weather", "团队项目 / 玩法 VFX 与天气"),
     mediaClass: "media-vehicle",
     mediaBadge: "VFX",
-    mediaHint: localized("Add vehicle combat footage", "添加载具战斗画面"),
+    mediaHint: localized("Niagara / dynamic weather", "Niagara / 动态天气"),
     mediaLabel: localized("Vehicle combat gameplay media", "载具战斗游戏画面"),
     description: localized(
       "Team-developed vehicle combat game where I owned dynamic weather, gameplay VFX, Niagara effects, materials, and a Blueprint-facing C++ particle component.",
@@ -221,12 +227,14 @@ export const projects: Project[] = [
 
 export const experiences: ExperienceItem[] = [
   {
+    category: "education",
     period: "2025 - 2026",
     name: localized("University of Warwick", "华威大学"),
     description: localized("MSc Games Engineering, WMG Excellence Scholarship.", "游戏工程硕士，WMG Excellence Scholarship。"),
     tag: localized("Graphics / Engine / UE5", "图形 / 引擎 / UE5")
   },
   {
+    category: "work",
     period: "2021 - 2024",
     name: localized("ByteDance", "字节跳动"),
     description: localized(
@@ -236,6 +244,7 @@ export const experiences: ExperienceItem[] = [
     tag: localized("Swift / Client Architecture", "Swift / 客户端架构")
   },
   {
+    category: "education",
     period: "2017 - 2021",
     name: localized("Wuhan University of Technology", "武汉理工大学"),
     description: localized("BSc Software Engineering.", "软件工程学士。"),

@@ -107,10 +107,23 @@ function setupRevealAnimation(): void {
   }
 }
 
-function openProjectDialog(event: Event): void {
-  const button = event.currentTarget as HTMLButtonElement;
-  const dialog = document.getElementById(button.dataset.dialog!) as HTMLDialogElement;
+function showProjectDialog(dialogId: string): void {
+  const dialog = document.getElementById(dialogId) as HTMLDialogElement;
   dialog.showModal();
+}
+
+function openProjectDialog(event: Event): void {
+  const trigger = event.currentTarget as HTMLElement;
+  showProjectDialog(trigger.dataset.dialog!);
+}
+
+function openProjectCardDialog(event: Event): void {
+  const target = event.target as Element;
+  if (target.closest("a, button")) {
+    return;
+  }
+
+  openProjectDialog(event);
 }
 
 function closeProjectDialog(event: Event): void {
@@ -128,11 +141,16 @@ function closeDialogBackdrop(event: MouseEvent): void {
 
 function setupProjectDialogs(): void {
   const openButtons = document.querySelectorAll<HTMLButtonElement>(".project-detail-button");
+  const projectCards = document.querySelectorAll<HTMLElement>(".project-card[data-dialog]");
   const closeButtons = document.querySelectorAll<HTMLButtonElement>(".dialog-close");
   const dialogs = document.querySelectorAll<HTMLDialogElement>(".project-dialog");
 
   for (const button of openButtons) {
     button.addEventListener("click", openProjectDialog);
+  }
+
+  for (const card of projectCards) {
+    card.addEventListener("click", openProjectCardDialog);
   }
 
   for (const button of closeButtons) {

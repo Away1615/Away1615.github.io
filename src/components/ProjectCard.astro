@@ -11,28 +11,32 @@ const { project, index } = Astro.props;
 const displayIndex = String(index + 1).padStart(2, "0");
 ---
 
-<article class="project-card reveal">
-  <div class:list={["project-media", project.mediaClass]}>
-    <span class="project-media-index" aria-hidden="true">PROJECT / {displayIndex}</span>
+<article class="project-card reveal" data-dialog={`${project.id}-dialog`}>
+  <div class:list={["project-media", project.mediaClass]} aria-hidden="true">
+    <span class="project-media-index">{displayIndex}</span>
     <div class="media-placeholder">
-      <span>{project.mediaBadge}</span>
+      <strong>{project.mediaBadge}</strong>
       <small data-en={project.mediaHint.en} data-zh={project.mediaHint.zh}>{project.mediaHint.en}</small>
     </div>
   </div>
+
   <div class="project-content">
-    <p class="project-kicker" aria-hidden="true">PROJECT / {displayIndex}</p>
+    <p class="project-kicker" data-en={project.cardLabel.en} data-zh={project.cardLabel.zh}>{project.cardLabel.en}</p>
     <h3>{project.title}</h3>
-    <div class="tag-list" aria-label={`${project.title} technologies`}>
-      {project.tags.map((tag) => <span class:list={["tag", `tag-${tag.tone}`]}>{tag.label}</span>)}
-    </div>
-    <p data-en={project.description.en} data-zh={project.description.zh}>{project.description.en}</p>
+    <p class="project-description" data-en={project.description.en} data-zh={project.description.zh}>
+      {project.description.en}
+    </p>
+    <ul class="tag-list" aria-label={`${project.title} technologies`}>
+      {project.tags.map((tag) => <li class="tag">{tag.label}</li>)}
+    </ul>
     <div class="project-actions">
-      <button class="button button-primary project-detail-button" type="button" data-dialog={`${project.id}-dialog`}>
+      <button class="text-link project-detail-button" type="button" data-dialog={`${project.id}-dialog`}>
         <span data-en={copy.projects.details.en} data-zh={copy.projects.details.zh}>{copy.projects.details.en}</span>
+        <span class="link-arrow link-arrow-forward" aria-hidden="true">→</span>
       </button>
       {project.github && (
-        <a class="button github-button" href={project.github} target="_blank" rel="noreferrer">
-          <span>GH</span>GitHub
+        <a class="text-link" href={project.github} target="_blank" rel="noreferrer">
+          GitHub <span class="link-arrow link-arrow-external" aria-hidden="true">↗</span>
         </a>
       )}
     </div>

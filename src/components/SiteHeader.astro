@@ -1,12 +1,18 @@
 ---
 import { copy } from "../i18n/copy";
 import LogoMark from "./LogoMark.astro";
+
+interface Props {
+  rootHref?: string;
+}
+
+const { rootHref = "" } = Astro.props;
 ---
 
 <header class="site-header">
   <a
     class="brand"
-    href="#top"
+    href={`${rootHref}#top`}
     aria-label={copy.accessibility.home.en}
     data-aria-en={copy.accessibility.home.en}
     data-aria-zh={copy.accessibility.home.zh}
@@ -20,11 +26,11 @@ import LogoMark from "./LogoMark.astro";
     data-aria-en={copy.accessibility.navigation.en}
     data-aria-zh={copy.accessibility.navigation.zh}
   >
-    <a href="#about" data-en={copy.navigation.about.en} data-zh={copy.navigation.about.zh}>{copy.navigation.about.en}</a>
-    <a href="#projects" data-en={copy.navigation.projects.en} data-zh={copy.navigation.projects.zh}>{copy.navigation.projects.en}</a>
-    <a href="#experience" data-en={copy.navigation.experience.en} data-zh={copy.navigation.experience.zh}>{copy.navigation.experience.en}</a>
-    <a href="#skills" data-en={copy.navigation.skills.en} data-zh={copy.navigation.skills.zh}>{copy.navigation.skills.en}</a>
-    <a href="#contact" data-en={copy.navigation.contact.en} data-zh={copy.navigation.contact.zh}>{copy.navigation.contact.en}</a>
+    <a href={`${rootHref}#projects`} data-en={copy.navigation.projects.en} data-zh={copy.navigation.projects.zh}>{copy.navigation.projects.en}</a>
+    <a href={`${rootHref}#experience`} data-en={copy.navigation.experience.en} data-zh={copy.navigation.experience.zh}>{copy.navigation.experience.en}</a>
+    <a href={`${rootHref}#about`} data-en={copy.navigation.about.en} data-zh={copy.navigation.about.zh}>{copy.navigation.about.en}</a>
+    <a href={`${rootHref}#skills`} data-en={copy.navigation.skills.en} data-zh={copy.navigation.skills.zh}>{copy.navigation.skills.en}</a>
+    <a href={`${rootHref}#contact`} data-en={copy.navigation.contact.en} data-zh={copy.navigation.contact.zh}>{copy.navigation.contact.en}</a>
   </nav>
   <div class="header-actions">
     <div
