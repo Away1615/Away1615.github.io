@@ -41,9 +41,7 @@ function updateLocalizedLinks(language: Language): void {
 
   for (const link of links) {
     const href = language === "zh" ? link.dataset.hrefZh! : link.dataset.hrefEn!;
-    const download = language === "zh" ? link.dataset.downloadZh! : link.dataset.downloadEn!;
     link.setAttribute("href", href);
-    link.setAttribute("download", download);
   }
 }
 

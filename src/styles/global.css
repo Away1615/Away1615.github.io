@@ -242,7 +242,7 @@ h1 {
 
 .profile-resume-link::after {
   color: var(--accent-soft);
-  content: "↓";
+  content: "↗";
 }
 
 .social-links {
@@ -878,7 +878,7 @@ h1 {
 .archive-page .resume-link::after {
   margin-left: 5px;
   color: var(--accent-soft);
-  content: "↓";
+  content: "↗";
 }
 
 .archive-shell {
@@ -1145,7 +1145,7 @@ h1 {
   .resume-link::after {
     margin-left: 5px;
     color: var(--accent-soft);
-    content: "↓";
+    content: "↗";
   }
 
   .portfolio-shell {

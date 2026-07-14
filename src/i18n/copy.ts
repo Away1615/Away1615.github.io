@@ -20,7 +20,7 @@ export const copy = {
     projects: localized("Projects", "项目"),
     experience: localized("Experience", "经历"),
     skills: localized("Capabilities", "能力"),
-    resume: localized("Download CV", "下载简历")
+    resume: localized("View CV", "查看简历")
   },
   hero: {
     availability: localized(
@@ -30,10 +30,10 @@ export const copy = {
     title: localized("Wei Dong", "董伟"),
     role: localized("UE5 Gameplay & Game Client Programmer", "UE5 Gameplay / 游戏客户端程序员"),
     summary: localized(
-      "I bring three years of large-scale mobile client development and cross-team collaboration to Unreal Engine client and gameplay engineering, with work spanning networking, GAS, real-time rendering, and performance-conscious C++.",
-      "我拥有三年大型移动客户端开发与跨团队协作经验，目前专注于虚幻引擎客户端与 Gameplay 开发，技术方向涵盖网络同步、GAS、实时渲染与注重性能的 C++ 开发。"
+      "I value clear engineering design, long-term extensibility, and implementations that are both simple and elegant.",
+      "我重视清晰的工程设计、长期可扩展性，以及简洁而优雅的实现。"
     ),
-    resume: localized("Download resume", "下载简历"),
+    resume: localized("View resume", "查看简历"),
     projects: localized("Projects", "项目")
   },
   about: {
