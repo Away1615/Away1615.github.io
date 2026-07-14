@@ -12,6 +12,7 @@ export const copy = {
     home: localized("Wei Dong home", "董伟主页"),
     navigation: localized("Primary navigation", "主导航"),
     language: localized("Choose language", "选择语言"),
+    socialLinks: localized("Social links", "社交链接"),
     closeProject: localized("Close project details", "关闭项目详情")
   },
   navigation: {
@@ -19,7 +20,6 @@ export const copy = {
     projects: localized("Projects", "项目"),
     experience: localized("Experience", "经历"),
     skills: localized("Capabilities", "能力"),
-    contact: localized("Contact", "联系"),
     resume: localized("Download CV", "下载简历")
   },
   hero: {
@@ -87,13 +87,5 @@ export const copy = {
   },
   skills: {
     eyebrow: localized("Capabilities", "能力方向")
-  },
-  contact: {
-    eyebrow: localized("Contact", "联系"),
-    description: localized(
-      "Open to UE5 gameplay and game client opportunities. If my experience fits your team, I'd be glad to talk.",
-      "期待 UE5 Gameplay 与游戏客户端开发机会。如果我的经历与你的团队契合，欢迎联系我。"
-    ),
-    email: localized("Email me", "给我发邮件")
   }
 };
