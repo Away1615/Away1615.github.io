@@ -54,45 +54,49 @@ function same(value: string): LocalizedText {
 
 export const projects: Project[] = [
   {
-    id: "rift",
-    title: "Rift",
-    dialogTitle: "Rift",
-    cardLabel: localized("Solo gameplay / systems programming", "独立玩法 / 系统开发"),
-    mediaClass: "media-rift",
-    mediaBadge: "RIFT",
-    mediaHint: localized("UE5 co-op PvE", "UE5 合作 PvE"),
-    mediaLabel: localized("Rift gameplay media", "Rift 游戏画面"),
+    id: "survivors-like",
+    title: "Vampire Survivors Like",
+    dialogTitle: "Vampire Survivors Like",
+    cardLabel: localized("C++ gameplay / systems programming", "C++ 玩法 / 系统开发"),
+    mediaClass: "media-survivors",
+    mediaBadge: "SURVIVE",
+    mediaHint: localized("C++17 survival action", "C++17 生存动作游戏"),
+    mediaLabel: localized("Vampire Survivors Like gameplay media", "Vampire Survivors Like 游戏画面"),
     description: localized(
-      "A 1-4 player third-person co-op PvE ARPG prototype with lobby flow, replicated combat, encounter waves, enemy AI, boss phases, respawn, and victory handling.",
-      "1-4 人第三人称合作 PvE ARPG 原型，包含大厅流程、网络同步战斗、遭遇波次、敌人 AI、Boss 阶段、重生与胜利结算。"
+      "A C++17 top-down survival action game with escalating combat, automatic attacks, four enemy archetypes, power-ups, fixed and seeded infinite maps, and multi-slot save/load.",
+      "使用 C++17 开发的俯视角生存动作游戏，包含逐步增强的战斗、自动攻击、四类敌人、增益道具、固定与种子化无限地图，以及多槽位存档。"
     ),
     tags: [
-      { label: "C++", tone: "cpp" },
-      { label: "UE5", tone: "ue" },
-      { label: "GAS", tone: "gas" },
-      { label: "LAN Multiplayer", tone: "net" }
+      { label: "C++17", tone: "cpp" },
+      { label: "Gameplay Systems", tone: "gas" },
+      { label: "Object Pooling", tone: "thread" },
+      { label: "Save System", tone: "net" }
     ],
-    github: "https://github.com/Away1615/Rift",
-    dialogType: localized("Project", "项目"),
+    github: "https://github.com/Away1615/Vampire-Survivors-Like",
+    dialogType: localized("Gameplay project", "玩法项目"),
     metadata: [
-      { label: localized("Role", "角色"), value: localized("Solo Gameplay / Systems Programmer", "独立玩法 / 系统程序员") },
-      { label: localized("Engine", "引擎"), value: same("Unreal Engine 5 / C++") },
-      { label: localized("Platform", "平台"), value: localized("PC, LAN Multiplayer", "PC、局域网多人游戏") },
-      { label: localized("Tools", "工具"), value: same("GAS, Behavior Tree, Visual Studio, Git") }
+      { label: localized("Role", "角色"), value: localized("Gameplay / Systems Programmer", "玩法 / 系统程序员") },
+      { label: localized("Language", "语言"), value: same("C++17") },
+      { label: localized("Framework", "框架"), value: same("GamesEngineeringBase (Direct3D 11)") },
+      { label: localized("Platform", "平台"), value: same("Windows PC") }
     ],
-    detailHeading: localized("Responsibilities", "主要职责"),
+    detailHeading: localized("Engineering highlights", "工程亮点"),
     details: [
       localized(
-        "Implemented room-code joining, lobby readiness, character confirmation, map travel, respawn, and victory flow.",
-        "实现房间码加入、大厅准备、角色确认、地图切换、重生与胜利流程。"
+        "Structured a complete 120-second survival session across menu, gameplay, save, victory, and defeat states, with provider interfaces separating gameplay systems.",
+        "围绕菜单、游玩、存档、胜利与失败状态组织完整的 120 秒生存局，并通过 Provider 接口划分各玩法系统的职责边界。"
       ),
       localized(
-        "Built GAS twin-sword combat with combo graph, guard, dodge, RapidSlash, poise, stagger, and replicated attributes.",
-        "使用 GAS 构建双剑战斗，包括连招图、格挡、闪避、RapidSlash、韧性、硬直与属性同步。"
+        "Built nearest-target automatic fire and a player-triggered AOE that prioritizes high-HP enemies, alongside four enemy archetypes and time-based spawn scaling.",
+        "实现最近目标自动射击与优先攻击高生命值敌人的主动 AOE，并设计四类敌人与随时间提升的刷怪强度。"
       ),
       localized(
-        "Created server-authoritative encounter waves, enemy Behavior Trees, shield behavior, and replicated boss phases.",
-        "实现服务器权威的遭遇波次、敌人行为树、护盾行为和网络同步的 Boss 阶段。"
+        "Managed high-churn enemies, projectiles, and power-ups through reusable object pools, active-object views, collision handling, and off-screen cleanup.",
+        "通过可复用对象池、活跃对象视图、碰撞处理与屏幕外回收，管理高频生成的敌人、投射物和增益道具。"
+      ),
+      localized(
+        "Implemented fixed and seeded infinite tile maps plus a versioned, multi-slot snapshot system that restores the player, world, combat timers, enemies, projectiles, and power-ups.",
+        "实现固定与种子化无限瓦片地图，以及带版本号的多槽位快照存档，可恢复玩家、世界、战斗计时、敌人、投射物与增益道具状态。"
       )
     ]
   },
