@@ -36,6 +36,15 @@ function translateAriaLabels(language: Language): void {
   }
 }
 
+function translateAltText(language: Language): void {
+  const images = document.querySelectorAll<HTMLImageElement>("[data-alt-en][data-alt-zh]");
+
+  for (const image of images) {
+    const alt = language === "zh" ? image.dataset.altZh! : image.dataset.altEn!;
+    image.setAttribute("alt", alt);
+  }
+}
+
 function updateLocalizedLinks(language: Language): void {
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-href-en][data-href-zh]");
 
@@ -66,6 +75,7 @@ function applyLanguage(language: Language): void {
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
   translateText(language);
   translateAriaLabels(language);
+  translateAltText(language);
   updateLocalizedLinks(language);
   updateMetadata(language);
   updateLanguageButtons(language);

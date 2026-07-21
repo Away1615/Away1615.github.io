@@ -48,15 +48,33 @@ const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.deta
       </ul>
     </header>
 
-    <div
-      class:list={["project-detail-media", project.mediaClass, "reveal"]}
-      role="img"
-      aria-label={project.mediaLabel.en}
-      data-aria-en={project.mediaLabel.en}
-      data-aria-zh={project.mediaLabel.zh}
-    >
-      <span data-en={project.mediaLabel.en} data-zh={project.mediaLabel.zh}>{project.mediaLabel.en}</span>
-    </div>
+    {project.heroMedia ? (
+      <figure class="project-detail-media project-detail-media-image reveal">
+        <img
+          src={project.heroMedia.src}
+          width={project.heroMedia.width}
+          height={project.heroMedia.height}
+          alt={project.heroMedia.alt.en}
+          data-alt-en={project.heroMedia.alt.en}
+          data-alt-zh={project.heroMedia.alt.zh}
+          decoding="async"
+          fetchpriority="high"
+        />
+        <figcaption data-en={project.heroMedia.caption.en} data-zh={project.heroMedia.caption.zh}>
+          {project.heroMedia.caption.en}
+        </figcaption>
+      </figure>
+    ) : (
+      <div
+        class:list={["project-detail-media", project.mediaClass, "reveal"]}
+        role="img"
+        aria-label={project.mediaLabel.en}
+        data-aria-en={project.mediaLabel.en}
+        data-aria-zh={project.mediaLabel.zh}
+      >
+        <span data-en={project.mediaLabel.en} data-zh={project.mediaLabel.zh}>{project.mediaLabel.en}</span>
+      </div>
+    )}
 
     <section class="project-detail-overview reveal" aria-labelledby="project-overview-title">
       <h2
@@ -76,27 +94,44 @@ const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.deta
       </dl>
     </section>
 
-    {project.detailSections.map((section, sectionIndex) => (
+    {project.detailSections.map((section) => (
       <section class="project-detail-section reveal">
         <header class="project-detail-section-header">
-          <span>{String(sectionIndex + 1).padStart(2, "0")}</span>
-          <div>
-            <h2 data-en={section.heading.en} data-zh={section.heading.zh}>{section.heading.en}</h2>
-            {section.introduction && (
-              <p data-en={section.introduction.en} data-zh={section.introduction.zh}>
-                {section.introduction.en}
-              </p>
-            )}
-          </div>
+          <h2 data-en={section.heading.en} data-zh={section.heading.zh}>{section.heading.en}</h2>
+          {section.introduction && (
+            <p data-en={section.introduction.en} data-zh={section.introduction.zh}>
+              {section.introduction.en}
+            </p>
+          )}
         </header>
-        <ol class:list={["project-detail-list", section.layout === "flow" && "project-detail-flow"]}>
-          {section.items.map((item, itemIndex) => (
+        <ul class="project-detail-list">
+          {section.items.map((item) => (
             <li>
-              <span>{String(itemIndex + 1).padStart(2, "0")}</span>
               <p data-en={item.en} data-zh={item.zh}>{item.en}</p>
             </li>
           ))}
-        </ol>
+        </ul>
+        {section.media && (
+          <div class="project-detail-gallery">
+            {section.media.map((media) => (
+              <figure class:list={["project-detail-figure", media.wide && "is-wide"]}>
+                <img
+                  src={media.src}
+                  width={media.width}
+                  height={media.height}
+                  alt={media.alt.en}
+                  data-alt-en={media.alt.en}
+                  data-alt-zh={media.alt.zh}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption data-en={media.caption.en} data-zh={media.caption.zh}>
+                  {media.caption.en}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </section>
     ))}
 

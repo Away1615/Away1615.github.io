@@ -14,7 +14,18 @@ const detailHref = getProjectPath(project.id);
 ---
 
 <article class="project-card reveal" data-project-href={detailHref}>
-  <div class:list={["project-media", project.mediaClass]} aria-hidden="true">
+  <div class:list={["project-media", project.mediaClass, project.heroMedia && "has-image"]} aria-hidden="true">
+    {project.heroMedia && (
+      <img
+        class="project-media-image"
+        src={project.heroMedia.src}
+        width={project.heroMedia.width}
+        height={project.heroMedia.height}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    )}
     <span class="project-media-index">{displayIndex}</span>
     <div class="media-placeholder">
       <strong>{project.mediaBadge}</strong>
