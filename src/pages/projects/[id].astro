@@ -1,21 +1,41 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { Project } from "../../data/portfolio";
 import { localized, projects } from "../../data/portfolio";
 import { copy } from "../../i18n/copy";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-export function getStaticPaths() {
-  return projects.map((project) => ({
-    params: { id: project.id },
-    props: { project }
-  }));
+export async function getStaticPaths() {
+  const detailEntries = await getCollection("projectDetails");
+  const entriesByProjectAndLanguage = new Map(
+    detailEntries.map((entry) => [`${entry.data.projectId}:${entry.data.language}`, entry])
+  );
+
+  return projects.map((project) => {
+    const englishDetail = entriesByProjectAndLanguage.get(`${project.id}:en`);
+    const chineseDetail = entriesByProjectAndLanguage.get(`${project.id}:zh`);
+
+    if (!englishDetail || !chineseDetail) {
+      throw new Error(`Missing bilingual Markdown detail content for project "${project.id}".`);
+    }
+
+    return {
+      params: { id: project.id },
+      props: { project, englishDetail, chineseDetail }
+    };
+  });
 }
 
 interface Props {
   project: Project;
+  englishDetail: CollectionEntry<"projectDetails">;
+  chineseDetail: CollectionEntry<"projectDetails">;
 }
 
-const { project } = Astro.props;
+const { project, englishDetail, chineseDetail } = Astro.props;
+const { Content: EnglishContent } = await render(englishDetail);
+const { Content: ChineseContent } = await render(chineseDetail);
 const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.detailTitle} - 董伟`);
 ---
 
@@ -94,46 +114,14 @@ const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.deta
       </dl>
     </section>
 
-    {project.detailSections.map((section) => (
-      <section class="project-detail-section reveal">
-        <header class="project-detail-section-header">
-          <h2 data-en={section.heading.en} data-zh={section.heading.zh}>{section.heading.en}</h2>
-          {section.introduction && (
-            <p data-en={section.introduction.en} data-zh={section.introduction.zh}>
-              {section.introduction.en}
-            </p>
-          )}
-        </header>
-        <ul class="project-detail-list">
-          {section.items.map((item) => (
-            <li>
-              <p data-en={item.en} data-zh={item.zh}>{item.en}</p>
-            </li>
-          ))}
-        </ul>
-        {section.media && (
-          <div class="project-detail-gallery">
-            {section.media.map((media) => (
-              <figure class:list={["project-detail-figure", media.wide && "is-wide"]}>
-                <img
-                  src={media.src}
-                  width={media.width}
-                  height={media.height}
-                  alt={media.alt.en}
-                  data-alt-en={media.alt.en}
-                  data-alt-zh={media.alt.zh}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption data-en={media.caption.en} data-zh={media.caption.zh}>
-                  {media.caption.en}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        )}
-      </section>
-    ))}
+    <div class="project-detail-content">
+      <article class="project-markdown" data-project-language="en">
+        <EnglishContent />
+      </article>
+      <article class="project-markdown" data-project-language="zh" hidden>
+        <ChineseContent />
+      </article>
+    </div>
 
     <a class="project-detail-all" href="/projects/">
       <span data-en={copy.projectDetail.allProjects.en} data-zh={copy.projectDetail.allProjects.zh}>

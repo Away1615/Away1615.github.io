@@ -5,7 +5,7 @@
   --surface-soft: rgba(20, 31, 50, 0.62);
   --text: #e5edf7;
   --muted: #9aa9bd;
-  --quiet: #66758b;
+  --quiet: #74869e;
   --line: rgba(148, 163, 184, 0.17);
   --line-strong: rgba(148, 163, 184, 0.3);
   --accent: #7aa2e8;
@@ -1013,7 +1013,7 @@ h1 {
 }
 
 .project-detail-overview h2,
-.project-detail-section h2 {
+.project-markdown > h2 {
   margin: 0;
   color: var(--text);
   font-size: clamp(1.55rem, 3vw, 2.05rem);
@@ -1025,43 +1025,141 @@ h1 {
   margin-top: 24px;
 }
 
-.project-detail-section {
+.project-markdown {
+  display: flow-root;
+}
+
+.project-markdown[hidden] {
+  display: none;
+}
+
+.project-markdown > h2 {
   margin-top: 76px;
 }
 
-.project-detail-section-header {
+.project-markdown > h3 {
   max-width: 76ch;
-  margin-bottom: 20px;
+  margin: 42px 0 0;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 670;
+  letter-spacing: -0.02em;
 }
 
-.project-detail-section-header p {
+.project-markdown > p {
+  max-width: 76ch;
   margin: 13px 0 0;
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.75;
 }
 
-.project-detail-list {
+.project-markdown > ul,
+.project-markdown > ol {
   display: grid;
   max-width: 76ch;
   gap: 10px;
-  margin: 0;
+  margin: 20px 0 0;
   padding-left: 1.15rem;
-}
-
-.project-detail-list li {
-  padding-left: 0.2rem;
-}
-
-.project-detail-list li::marker {
-  color: var(--accent-soft);
-}
-
-.project-detail-list p {
-  margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.75;
+}
+
+.project-markdown li {
+  padding-left: 0.2rem;
+}
+
+.project-markdown li::marker {
+  color: var(--accent-soft);
+}
+
+.project-markdown li > ul,
+.project-markdown li > ol {
+  margin-top: 8px;
+}
+
+.project-markdown a {
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(142, 197, 220, 0.45);
+  text-underline-offset: 3px;
+}
+
+.project-markdown strong {
+  color: var(--text);
+}
+
+.project-markdown code {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  padding: 0.12em 0.38em;
+  color: var(--text);
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.86em;
+}
+
+.project-markdown pre {
+  max-width: 100%;
+  margin: 22px 0 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #080d18;
+  padding: 18px;
+}
+
+.project-markdown pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.project-markdown blockquote {
+  max-width: 76ch;
+  margin: 22px 0 0;
+  border-left: 2px solid var(--accent);
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.project-markdown blockquote p {
+  margin: 0;
+}
+
+.project-markdown table {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  overflow-x: auto;
+  border-collapse: collapse;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.project-markdown th,
+.project-markdown td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.project-markdown th {
+  color: var(--text);
+  font-weight: 680;
+}
+
+.project-markdown hr {
+  margin: 48px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.project-markdown img {
+  max-width: 100%;
+  height: auto;
 }
 
 .project-detail-gallery {
@@ -1289,10 +1387,34 @@ h1 {
 @media (max-width: 820px) {
   .site-header {
     grid-template-columns: 1fr auto;
+    row-gap: 4px;
   }
 
   .site-nav {
+    display: flex;
+    min-width: 0;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    gap: clamp(14px, 5vw, 24px);
+    overflow-x: auto;
+    padding-top: 2px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .site-nav a {
+    display: inline-flex;
+    min-height: 30px;
+    flex: 0 0 auto;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .content-section {
+    scroll-margin-top: 104px;
   }
 }
 
@@ -1352,7 +1474,7 @@ h1 {
 
   .content-section {
     padding-bottom: 88px;
-    scroll-margin-top: 76px;
+    scroll-margin-top: 100px;
   }
 
   .content-section + .content-section {
@@ -1432,7 +1554,7 @@ h1 {
     margin-top: 50px;
   }
 
-  .project-detail-section {
+  .project-markdown > h2 {
     margin-top: 60px;
   }
 
@@ -1507,10 +1629,6 @@ h1 {
 @media (max-width: 820px) {
   .archive-page .site-header {
     grid-template-columns: 1fr auto;
-  }
-
-  .archive-page .site-nav {
-    display: none;
   }
 }
 

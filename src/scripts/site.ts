@@ -54,6 +54,14 @@ function updateLocalizedLinks(language: Language): void {
   }
 }
 
+function updateProjectMarkdown(language: Language): void {
+  const articles = document.querySelectorAll<HTMLElement>("[data-project-language]");
+
+  for (const article of articles) {
+    article.hidden = article.dataset.projectLanguage !== language;
+  }
+}
+
 function updateMetadata(language: Language): void {
   const root = document.documentElement;
   const description = document.querySelector<HTMLMetaElement>("#meta-description")!;
@@ -77,6 +85,7 @@ function applyLanguage(language: Language): void {
   translateAriaLabels(language);
   translateAltText(language);
   updateLocalizedLinks(language);
+  updateProjectMarkdown(language);
   updateMetadata(language);
   updateLanguageButtons(language);
   localStorage.setItem(languageStorageKey, language);

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Vampire Survivors Like runtime architecture</title>
+  <desc id="description">Main composes services, GameManager owns application states, GEGameSession orchestrates provider-based gameplay subsystems, and snapshots flow through a versioned serializer and repository.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e0c"/>
+      <stop offset="1" stop-color="#111815"/>
+    </linearGradient>
+    <linearGradient id="primaryPanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18231e"/>
+      <stop offset="1" stop-color="#111815"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity=".28"/>
+    </filter>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1l10 5-10 5z" fill="#6ee7a8"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1l10 5-10 5z" fill="#70a7ff"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#background)"/>
+  <text x="80" y="82" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="42" font-weight="700">Runtime ownership &amp; state flow</text>
+  <text x="80" y="118" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="20">C++17 · explicit composition · interface-driven subsystems · full-state persistence</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="160" width="360" height="116" rx="22" fill="url(#primaryPanel)" stroke="#395347" stroke-width="2"/>
+    <rect x="620" y="160" width="360" height="116" rx="22" fill="url(#primaryPanel)" stroke="#395347" stroke-width="2"/>
+    <rect x="1160" y="160" width="360" height="116" rx="22" fill="url(#primaryPanel)" stroke="#6ee7a8" stroke-width="2"/>
+  </g>
+  <text x="112" y="208" fill="#6ee7a8" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="700" letter-spacing="2">COMPOSITION ROOT</text>
+  <text x="112" y="246" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="30" font-weight="700">Main</text>
+  <text x="652" y="208" fill="#6ee7a8" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="700" letter-spacing="2">APPLICATION STATE</text>
+  <text x="652" y="246" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="30" font-weight="700">GameManager</text>
+  <text x="1192" y="208" fill="#6ee7a8" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="700" letter-spacing="2">PER-RUN ORCHESTRATION</text>
+  <text x="1192" y="246" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="30" font-weight="700">GEGameSession</text>
+
+  <path d="M440 218h154" fill="none" stroke="#6ee7a8" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <path d="M980 218h154" fill="none" stroke="#6ee7a8" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <text x="486" y="201" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="16">constructs</text>
+  <text x="1024" y="201" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="16">starts / restores</text>
+
+  <path d="M1340 276v48H200v42" fill="none" stroke="#6ee7a8" stroke-width="3"/>
+  <path d="M500 324v42M800 324v42M1100 324v42M1400 324v42" fill="none" stroke="#6ee7a8" stroke-width="3"/>
+  <path d="M200 324h1200" fill="none" stroke="#6ee7a8" stroke-width="3"/>
+  <text x="1190" y="318" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="16">update / render through capabilities</text>
+
+  <g font-family="Inter, Segoe UI, sans-serif">
+    <g>
+      <rect x="80" y="366" width="240" height="154" rx="20" fill="#101713" stroke="#2f4b3e" stroke-width="2"/>
+      <text x="104" y="407" fill="#70a7ff" font-size="15" font-weight="700" letter-spacing="1.5">MAP PROVIDER</text>
+      <text x="104" y="445" fill="#f3f7f4" font-size="24" font-weight="700">GEMapsManager</text>
+      <text x="104" y="480" fill="#91a099" font-size="17">tiles · collision layers</text>
+      <text x="104" y="505" fill="#91a099" font-size="17">fixed / seeded infinite</text>
+    </g>
+    <g>
+      <rect x="380" y="366" width="240" height="154" rx="20" fill="#101713" stroke="#2f4b3e" stroke-width="2"/>
+      <text x="404" y="407" fill="#70a7ff" font-size="15" font-weight="700" letter-spacing="1.5">PLAYER PROVIDER</text>
+      <text x="404" y="445" fill="#f3f7f4" font-size="24" font-weight="700">GEPlayer</text>
+      <text x="404" y="480" fill="#91a099" font-size="17">movement · combat</text>
+      <text x="404" y="505" fill="#91a099" font-size="17">buffs · hazards</text>
+    </g>
+    <g>
+      <rect x="680" y="366" width="240" height="154" rx="20" fill="#101713" stroke="#2f4b3e" stroke-width="2"/>
+      <text x="704" y="407" fill="#70a7ff" font-size="15" font-weight="700" letter-spacing="1.5">ENEMY PROVIDER</text>
+      <text x="704" y="445" fill="#f3f7f4" font-size="24" font-weight="700">GEEnemyManager</text>
+      <text x="704" y="480" fill="#91a099" font-size="17">spawn pressure · AI</text>
+      <text x="704" y="505" fill="#91a099" font-size="17">kills · active set</text>
+    </g>
+    <g>
+      <rect x="980" y="366" width="240" height="154" rx="20" fill="#101713" stroke="#2f4b3e" stroke-width="2"/>
+      <text x="1004" y="407" fill="#70a7ff" font-size="15" font-weight="700" letter-spacing="1.5">PROJECTILE PROVIDER</text>
+      <text x="1004" y="445" fill="#f3f7f4" font-size="22" font-weight="700">GEProjectileManager</text>
+      <text x="1004" y="480" fill="#91a099" font-size="17">lifetime · ownership</text>
+      <text x="1004" y="505" fill="#91a099" font-size="17">hits · off-screen reuse</text>
+    </g>
+    <g>
+      <rect x="1280" y="366" width="240" height="154" rx="20" fill="#101713" stroke="#2f4b3e" stroke-width="2"/>
+      <text x="1304" y="407" fill="#70a7ff" font-size="15" font-weight="700" letter-spacing="1.5">POWER-UP PROVIDER</text>
+      <text x="1304" y="445" fill="#f3f7f4" font-size="22" font-weight="700">GEPowerUpManager</text>
+      <text x="1304" y="480" fill="#91a099" font-size="17">drops · collection</text>
+      <text x="1304" y="505" fill="#91a099" font-size="17">timed effects</text>
+    </g>
+  </g>
+
+  <path d="M800 520v54H410v46" fill="none" stroke="#70a7ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <path d="M800 520v54h470v46" fill="none" stroke="#70a7ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="824" y="562" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="16">shared runtime services</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="620" width="660" height="174" rx="22" fill="#101713" stroke="#395347" stroke-width="2"/>
+    <rect x="860" y="620" width="660" height="174" rx="22" fill="#101713" stroke="#395347" stroke-width="2"/>
+  </g>
+  <text x="112" y="664" fill="#6ee7a8" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="700" letter-spacing="2">FOUNDATION</text>
+  <text x="112" y="706" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="26" font-weight="700">Camera · Collision · FrameTimer</text>
+  <text x="112" y="746" fill="#f3f7f4" font-family="Inter, Segoe UI, sans-serif" font-size="26" font-weight="700">Resource cache · GEObjectPool</text>
+  <text x="112" y="776" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="17">Shared mechanics stay below domain orchestration.</text>
+
+  <text x="892" y="664" fill="#6ee7a8" font-family="Inter, Segoe UI, sans-serif" font-size="17" font-weight="700" letter-spacing="2">PERSISTENCE</text>
+  <g font-family="Inter, Segoe UI, sans-serif">
+    <rect x="892" y="692" width="160" height="58" rx="14" fill="#18231e"/>
+    <rect x="1098" y="692" width="160" height="58" rx="14" fill="#18231e"/>
+    <rect x="1304" y="692" width="184" height="58" rx="14" fill="#18231e"/>
+    <text x="972" y="728" fill="#f3f7f4" font-size="20" text-anchor="middle" font-weight="700">Snapshot</text>
+    <text x="1178" y="728" fill="#f3f7f4" font-size="20" text-anchor="middle" font-weight="700">Serializer v3</text>
+    <text x="1396" y="728" fill="#f3f7f4" font-size="20" text-anchor="middle" font-weight="700">Repository</text>
+  </g>
+  <path d="M1052 721h36M1258 721h36" fill="none" stroke="#70a7ff" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="892" y="776" fill="#91a099" font-family="Inter, Segoe UI, sans-serif" font-size="17">Validated schema · temporary write · atomic replacement</text>
+
+  <text x="80" y="850" fill="#64736b" font-family="Inter, Segoe UI, sans-serif" font-size="16">Concrete managers own their domains; the session depends on narrow capabilities and serializable state contracts.</text>
+</svg>
