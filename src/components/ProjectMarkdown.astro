@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"projectDetails">;
+  language: "en" | "zh";
+  tocLabel: string;
+  overviewLabel: string;
+  hidden?: boolean;
+}
+
+const {
+  entry,
+  language,
+  tocLabel,
+  overviewLabel,
+  hidden = false
+} = Astro.props;
+const { Content, headings } = await render(entry);
+const tableOfContents = headings.filter(({ depth }) => depth === 2 || depth === 3);
+---
+
+<section
+  class="project-markdown-layout"
+  data-project-language={language}
+  lang={language === "zh" ? "zh-CN" : "en"}
+  hidden={hidden}
+>
+  <nav class="project-markdown-toc" aria-label={tocLabel}>
+    <p class="project-markdown-toc-title">{tocLabel}</p>
+    <ol>
+      <li class="is-depth-2">
+        <a href="#project-overview-title">{overviewLabel}</a>
+      </li>
+      {tableOfContents.map((heading) => (
+        <li class={`is-depth-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <article class="project-markdown">
+    <Content />
+  </article>
+</section>

@@ -55,10 +55,10 @@ function updateLocalizedLinks(language: Language): void {
 }
 
 function updateProjectMarkdown(language: Language): void {
-  const articles = document.querySelectorAll<HTMLElement>("[data-project-language]");
+  const sections = document.querySelectorAll<HTMLElement>("[data-project-language]");
 
-  for (const article of articles) {
-    article.hidden = article.dataset.projectLanguage !== language;
+  for (const section of sections) {
+    section.hidden = section.dataset.projectLanguage !== language;
   }
 }
 

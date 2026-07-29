@@ -945,21 +945,32 @@ h1 {
 }
 
 .project-detail-hero {
-  max-width: 860px;
-  margin: 74px 0 48px;
+  max-width: 760px;
+  margin: 64px 0 44px;
+}
+
+.project-detail-hero .archive-eyebrow {
+  margin-bottom: 12px;
+  color: var(--quiet);
+  font-size: 0.76rem;
+  font-weight: 620;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .project-detail-hero h1 {
-  font-size: clamp(3.25rem, 7vw, 5.8rem);
-  letter-spacing: -0.055em;
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  font-weight: 720;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
 }
 
 .project-detail-hero > p:not(.archive-eyebrow) {
-  max-width: 68ch;
-  margin: 22px 0 0;
+  max-width: 64ch;
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.96rem;
+  line-height: 1.72;
 }
 
 .project-detail-hero .tag-list {
@@ -976,15 +987,19 @@ h1 {
   border-radius: 10px;
   color: rgba(229, 237, 247, 0.72);
   font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .project-detail-media-image {
+  position: relative;
+  isolation: isolate;
   display: block;
   min-height: 0;
-  background: var(--surface);
+  overflow: hidden;
+  border: 0;
+  border-radius: 12px;
+  background: #080d18;
   letter-spacing: normal;
   text-transform: none;
 }
@@ -993,81 +1008,181 @@ h1 {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
 .project-detail-media-image figcaption,
 .project-detail-figure figcaption {
-  border-top: 1px solid var(--line);
-  padding: 14px 16px;
   color: var(--quiet);
-  font-size: 0.72rem;
-  font-weight: 540;
-  letter-spacing: 0.005em;
-  line-height: 1.6;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.project-detail-media-image figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 8, 15, 0.88) 0%,
+    rgba(4, 8, 15, 0.58) 48%,
+    rgba(4, 8, 15, 0) 100%
+  );
+  padding: 54px 22px 18px;
+  color: rgba(229, 237, 247, 0.9);
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.project-detail-figure figcaption {
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 8px;
+  text-align: center;
 }
 
 .project-detail-overview {
-  margin-top: 62px;
+  margin-top: 56px;
 }
 
 .project-detail-overview h2,
 .project-markdown > h2 {
   margin: 0;
   color: var(--text);
-  font-size: clamp(1.55rem, 3vw, 2.05rem);
-  font-weight: 680;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
 }
 
 .project-detail-overview .project-meta {
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
-.project-markdown {
-  display: flow-root;
+.project-detail-overview .project-meta dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
-.project-markdown[hidden] {
+.project-detail-overview .project-meta dd {
+  font-size: 0.88rem;
+}
+
+.project-markdown-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: clamp(36px, 4.5vw, 52px);
+  align-items: start;
+  margin-top: 64px;
+}
+
+.project-markdown-layout[hidden] {
   display: none;
 }
 
+.project-markdown {
+  grid-column: 1;
+  grid-row: 1;
+  display: flow-root;
+  min-width: 0;
+}
+
+.project-markdown-toc {
+  position: sticky;
+  top: 96px;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+}
+
+.project-markdown-toc-title {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.project-markdown-toc ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-markdown-toc li {
+  min-width: 0;
+}
+
+.project-markdown-toc li.is-depth-3 {
+  padding-left: 14px;
+}
+
+.project-markdown-toc a {
+  display: block;
+  color: var(--quiet);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.55;
+  transition: color 160ms ease;
+}
+
+.project-markdown-toc a:hover {
+  color: var(--accent-soft);
+}
+
 .project-markdown > h2 {
-  margin-top: 76px;
+  margin-top: 64px;
+  scroll-margin-top: 96px;
+}
+
+.project-markdown > h2:first-child {
+  margin-top: 0;
 }
 
 .project-markdown > h3 {
-  max-width: 76ch;
-  margin: 42px 0 0;
+  max-width: none;
+  margin: 36px 0 0;
   color: var(--text);
-  font-size: 1.2rem;
-  font-weight: 670;
-  letter-spacing: -0.02em;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  scroll-margin-top: 96px;
 }
 
 .project-markdown > p {
-  max-width: 76ch;
-  margin: 13px 0 0;
+  max-width: none;
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.75;
+  font-size: 0.94rem;
+  line-height: 1.72;
 }
 
 .project-markdown > ul,
 .project-markdown > ol {
   display: grid;
-  max-width: 76ch;
-  gap: 10px;
-  margin: 20px 0 0;
+  max-width: none;
+  gap: 8px;
+  margin: 18px 0 0;
   padding-left: 1.15rem;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.75;
+  font-size: 0.94rem;
+  line-height: 1.72;
 }
 
 .project-markdown li {
-  padding-left: 0.2rem;
+  padding-left: 0.1rem;
 }
 
 .project-markdown li::marker {
@@ -1117,7 +1232,7 @@ h1 {
 }
 
 .project-markdown blockquote {
-  max-width: 76ch;
+  max-width: none;
   margin: 22px 0 0;
   border-left: 2px solid var(--accent);
   padding-left: 18px;
@@ -1165,17 +1280,19 @@ h1 {
 .project-detail-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 32px 24px;
   margin-top: 28px;
 }
 
 .project-detail-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: 0;
   margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--surface-soft);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .project-detail-figure.is-wide {
@@ -1184,16 +1301,13 @@ h1 {
 
 .project-detail-figure img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  background: #080d18;
-  object-fit: contain;
-}
-
-.project-detail-figure.is-wide img {
-  height: auto;
+  margin-inline: auto;
   aspect-ratio: auto;
+  background: transparent;
+  object-fit: contain;
 }
 
 .project-detail-all {
@@ -1530,20 +1644,41 @@ h1 {
   }
 
   .project-detail-hero {
-    margin: 58px 0 38px;
+    margin: 52px 0 36px;
   }
 
   .project-detail-hero h1 {
-    font-size: clamp(2.75rem, 13vw, 4rem);
+    font-size: clamp(2.35rem, 11vw, 3.25rem);
   }
 
   .project-detail-media {
     min-height: 230px;
   }
 
+  .project-detail-media-image {
+    min-height: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .project-detail-media-image img {
+    border-radius: 9px;
+  }
+
+  .project-detail-media-image figcaption {
+    position: static;
+    background: transparent;
+    padding: 10px 4px 0;
+    color: var(--quiet);
+    font-size: 0.72rem;
+    text-align: center;
+    text-shadow: none;
+  }
+
   .project-detail-gallery {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 28px;
   }
 
   .project-detail-figure.is-wide {
@@ -1555,7 +1690,7 @@ h1 {
   }
 
   .project-markdown > h2 {
-    margin-top: 60px;
+    margin-top: 52px;
   }
 
 }
@@ -1624,6 +1759,34 @@ h1 {
   .project-detail-shell {
     padding-top: 58px;
   }
+
+  .project-markdown-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    margin-top: 60px;
+  }
+
+  .project-markdown-toc {
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    padding: 18px 0;
+  }
+
+  .project-markdown-toc ol {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px 24px;
+  }
+
+  .project-markdown {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1678,6 +1841,24 @@ h1 {
   .archive-hero > p:last-child,
   .project-detail-hero > p:not(.archive-eyebrow) {
     font-size: 0.92rem;
+  }
+
+  .project-markdown-layout {
+    gap: 32px;
+    margin-top: 52px;
+  }
+
+  .project-markdown-toc {
+    padding: 16px 0;
+  }
+
+  .project-markdown-toc ol {
+    grid-template-columns: 1fr;
+  }
+
+  .project-markdown > h2,
+  .project-markdown > h3 {
+    scroll-margin-top: 120px;
   }
 }
 

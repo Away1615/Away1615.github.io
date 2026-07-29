@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import ProjectMarkdown from "../../components/ProjectMarkdown.astro";
 import type { Project } from "../../data/portfolio";
 import { localized, projects } from "../../data/portfolio";
 import { copy } from "../../i18n/copy";
@@ -34,8 +35,6 @@ interface Props {
 }
 
 const { project, englishDetail, chineseDetail } = Astro.props;
-const { Content: EnglishContent } = await render(englishDetail);
-const { Content: ChineseContent } = await render(chineseDetail);
 const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.detailTitle} - 董伟`);
 ---
 
@@ -114,14 +113,19 @@ const pageTitle = localized(`${project.detailTitle} - Wei Dong`, `${project.deta
       </dl>
     </section>
 
-    <div class="project-detail-content">
-      <article class="project-markdown" data-project-language="en">
-        <EnglishContent />
-      </article>
-      <article class="project-markdown" data-project-language="zh" hidden>
-        <ChineseContent />
-      </article>
-    </div>
+    <ProjectMarkdown
+      entry={englishDetail}
+      language="en"
+      tocLabel={copy.projectDetail.toc.en}
+      overviewLabel={copy.projectDetail.overview.en}
+    />
+    <ProjectMarkdown
+      entry={chineseDetail}
+      language="zh"
+      tocLabel={copy.projectDetail.toc.zh}
+      overviewLabel={copy.projectDetail.overview.zh}
+      hidden
+    />
 
     <a class="project-detail-all" href="/projects/">
       <span data-en={copy.projectDetail.allProjects.en} data-zh={copy.projectDetail.allProjects.zh}>

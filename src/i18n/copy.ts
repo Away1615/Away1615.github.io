@@ -81,6 +81,7 @@ export const copy = {
   projectDetail: {
     back: localized("Back to projects", "返回项目"),
     overview: localized("Project overview", "项目概览"),
+    toc: localized("On this page", "目录"),
     allProjects: localized("View all projects", "查看全部项目")
   },
   experience: {
